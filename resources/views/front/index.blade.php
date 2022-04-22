@@ -129,7 +129,7 @@
 					</div> -->
 
 					<div class="tillnoblock2">
-										<img style="height: 25px;width: 50px;" src="http://zeta.elabassist.com/public/frontassets/images/mpesa.jpeg" alt="">
+										<img style="height: 25px;width: 50px;" src="{{url('public/frontassets/images/mpesa.jpeg')}}" alt="">
 					</div>
 						<div class="call-support">
 							<p>Call us for any question</p>
