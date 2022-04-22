@@ -43,6 +43,24 @@
 .tillno {
 	font-size: 15px;
 }
+
+.tillnoblock {
+		margin-top: 5px;
+		text-align: center;
+	}
+.tillnoblock2 {
+	position: relative;
+    top: 25px;
+    left: 48px;
+}
+	.tillno {
+    font-size: 15px;
+}
+	.purchasebtn {
+		position: sticky;
+		bottom: 1px;
+		background-color: white;
+	}
 </style>
 
 <body>
@@ -110,16 +128,19 @@
 						<h6>+254 103 333 444</h6>
 					</div> -->
 
-					<div class="call-support">
-						<p>Call us for any question</p>
-						<h6>+254 103 333 444</h6>
-
-						<div class="tillnoblock">
-										<p>Till No .</p>
-								<h6 class="tillno">+254 103 333 444</h6>
-										
-						</div>
+					<div class="tillnoblock2">
+										<img style="height: 25px;width: 50px;" src="http://zeta.elabassist.com/public/frontassets/images/mpesa.jpeg" alt="">
 					</div>
+						<div class="call-support">
+							<p>Call us for any question</p>
+							<h6>+254 103 333 444</h6>
+
+							<div class="tillnoblock">
+								<p class="tillno">Till No .</p>
+								<h6 class="tillno">9565005</h6>
+
+							</div>
+						</div>
 					
 				</div>
 			</div>

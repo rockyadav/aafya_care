@@ -321,7 +321,7 @@
             </p>
 
             <p class="text-center" style="font-size: 8px;">
-                <a href="javascript:void(0)">A Part of TNH</a>
+                <a href="javascript:void(0)">A Part of Zeta Healthcare Limited</a>
             </p>
 
 		</div>

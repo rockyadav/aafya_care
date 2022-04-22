@@ -18,16 +18,19 @@
 	<!-- Template CSS -->
 </head>
 <style type="text/css">
-.w3l-content-with-photo-4 .content-photo-info p {
+.w3l-content-with-photo-4 .content-photo-info p 
+{
     padding-left: 30px;
 }
 
-.price-table span:first-child {
+.price-table span:first-child 
+{
     font-size: 1em !important;
     
 }
 
-.price-table {
+.price-table 
+{
     height: 600px;
     overflow-y: auto;
 }
