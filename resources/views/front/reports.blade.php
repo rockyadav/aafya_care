@@ -18,21 +18,36 @@
 	<!-- Template CSS -->
 </head>
 <style type="text/css">
-.w3l-content-with-photo-4 .content-photo-info p 
-{
+.w3l-content-with-photo-4 .content-photo-info p {
     padding-left: 30px;
 }
 
-.price-table span:first-child 
-{
+.price-table span:first-child {
     font-size: 1em !important;
     
 }
 
-.price-table 
-{
+.price-table {
     height: 600px;
     overflow-y: auto;
+}
+.tillnoblock {
+	margin-top: 5px;
+}
+
+.tillnoblock {
+		margin-top: 5px;
+		text-align: center;
+	}
+.tillnoblock2 {
+		position: relative;
+		top: 28px;
+		left: 90px;
+}
+	.tillno {
+    font-size: 15px;
+				text-align: justify;
+				padding-left: 105px;
 }
 </style>
 
@@ -94,10 +109,19 @@
 						</li>-->
 					</ul> 
 					
-					<div class="call-support">
-						<p>Call us for any question</p>
-						<h6>+254 103 333 444</h6>
+					<div class="tillnoblock2">
+							<img style="height: 40px;width: 80px;" src="http://zeta.elabassist.com/public/frontassets/images/mpesa.jpeg" alt="">
 					</div>
+						<div class="call-support">
+							<p>Call us for any question</p>
+							<h6>+254 103 333 444</h6>
+
+							<div class="tillnoblock">
+								<p class="tillno">Till No .</p>
+								<h6 class="tillno">9565005</h6>
+
+							</div>
+						</div>
 				</div>
 			</div>
 		</nav>

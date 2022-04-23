@@ -40,21 +40,20 @@
 .tillnoblock {
 	margin-top: 5px;
 }
-.tillno {
-	font-size: 15px;
-}
 
 .tillnoblock {
 		margin-top: 5px;
 		text-align: center;
 	}
 .tillnoblock2 {
-	position: relative;
-    top: 25px;
-    left: 48px;
+		position: relative;
+		top: 28px;
+		left: 90px;
 }
 	.tillno {
     font-size: 15px;
+				text-align: justify;
+				padding-left: 105px;
 }
 	.purchasebtn {
 		position: sticky;
@@ -129,7 +128,7 @@
 					</div> -->
 
 					<div class="tillnoblock2">
-										<img style="height: 25px;width: 50px;" src="{{url('public/frontassets/images/mpesa.jpeg')}}" alt="">
+										<img style="height: 40px;width: 80px;" src="http://zeta.elabassist.com/public/frontassets/images/mpesa.jpeg" alt="">
 					</div>
 						<div class="call-support">
 							<p>Call us for any question</p>
@@ -1148,7 +1147,8 @@ body.loading .pun {
 	// 		}
 	// }
 
-	function Logout() {
+	function Logout() 
+	{
 
 		var url = "{{url('Logout')}}"
 		$.ajax({
@@ -1173,7 +1173,7 @@ body.loading .pun {
 						var zetaPorfiles = JSON.parse(localStorage.getItem('pros'));
 
 						if(zetaPorfiles != null)
-						{
+							{
 									if(zetaPorfiles.includes(iiD))
 									{
 										let index = zetaPorfiles.indexOf(iiD);
