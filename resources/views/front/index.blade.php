@@ -28,7 +28,7 @@
 }
 
 .price-table {
-    height: 600px;
+    height: 400px;
     overflow-y: auto;
 }
 .loadingLabel {
@@ -128,7 +128,7 @@
 					</div> -->
 
 					<div class="tillnoblock2">
-										<img style="height: 40px;width: 80px;" src="http://zeta.elabassist.com/public/frontassets/images/mpesa.jpeg" alt="">
+										<img style="height: 40px;width: 80px;" src="{{url('public/frontassets/images/mpesa.jpeg')}}" alt="">
 					</div>
 						<div class="call-support">
 							<p>Call us for any question</p>
@@ -523,11 +523,11 @@
 			                    <span>Price Ksh {{$row->dis_price}}</span>
 			                    <span>Features included!</span>
 			                </div>
-			                <div class="text-center" style="text-align: center;">
+			                <div class="text-center" style="text-align: center;height:520px;">
 			                <p><?php echo $row->description; ?>
 																			</p>
 																			</div>
-			                <a onclick="addProfile(this)" id="{{$row->id}}">purchase</a>
+			                <a id="{{$row->id}}" class="purchasebtn">purchase</a>
 			            </div>
 			        </div>
 			        @endforeach
@@ -537,7 +537,7 @@
 		</div>
 	</section>
 	<!-- /Covid-6-->
-	<section class="covid">
+	<!-- <section class="covid">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 mb-5">
@@ -571,7 +571,7 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 	<!-- /Covid-6-->
 	<!--Testinomial-->
 	<section class="testimonial text-center">
