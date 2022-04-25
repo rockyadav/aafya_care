@@ -186,7 +186,9 @@
 									<form action="{{url('OtpLogin')}}" method="GET" id="loginotp">
 										<div class="admission-form11">
 											<div class="form-group">
-												<input type="text" name="moNumber" id="mobileNumber" class="form-control mobile_no" placeholder=" Enter Mobile Number*" required="">
+												<input type="text" name="moNumber" id="mobileNumber" class="form-control mobile_no" placeholder=" Enter Mobile Number *" required="">
+												<input type="email" name="loginEmail" id="loginEmail" class="form-control email_id mt-1" placeholder=" Email ID for OTP *" required="">
+												<p style="font-size: 12px;">You will recieve OTP on your <a href="#">Email ID</a></p>												
 											</div>
 										</div>
 										<button type="submit" class="btn btn-primary submit">
@@ -1001,7 +1003,8 @@ body.loading .pun {
 		var url = $(this).attr('action');
 			var post = $(this).attr('method');
 		var enteredNumber = document.getElementById("mobileNumber").value;
-		url = url+"?number="+enteredNumber+""
+		var enteredEmail = document.getElementById("loginEmail").value;
+		url = url+"?number="+enteredNumber+"&email="+enteredEmail+""
 		
 		// console.log(url);
 		// console.log(post);
@@ -1019,12 +1022,15 @@ body.loading .pun {
 				var daataa = data.d;
 				console.log(data);
 				// var message = data.message;
-				if (daataa.Result == "Success") {
+				if (daataa.Result == "Success") 
+				{
+					alert("Kindly check your mail for OTP . Thank You !");
 					localStorage.setItem("UserData", JSON.stringify(daataa));
 					$("#form1").hide();
 					$("#form2").show();
 					$("#home").hide();
-				} else {
+				} else 
+				{
 						alert("OTP not working. Please contact zeta Healthcare .")
 				}
 			},

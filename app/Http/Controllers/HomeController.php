@@ -127,14 +127,17 @@ class HomeController extends Controller
     {
 
       $number = $_GET['number'];
+      $email = $_GET['email'];
       $obj = [
         "objSP" => 
         [
           "Task" => 7,
           "UserName" => $number,
           "Password" => $number,
+          "EmailID" => $email,
           "AppID" => "a76aeb22-c144-4748-a75c-9ba45ea80d8c",
           "MobileDeviceID" => "",
+          "MobileNo" => ""
         ]
       ];
       $postdata = json_encode($obj);
@@ -326,9 +329,8 @@ class HomeController extends Controller
               "RefByName" => "Dummy",
             ];
 
-            
             $postdata = json_encode($postdata);
-            echo $postdata;
+            // echo $postdata;
             /**POST SERVICE CALL */
             $method = "POST";
             $url = "http://zetatest.elabassist.com/Services/BookMyAppointment_Services.svc/PatientAppointMent_Global";
@@ -337,17 +339,119 @@ class HomeController extends Controller
             $data = json_decode($result, true);
             $data = $data["d"];
             // echo $result;
-            if ($data["Result"] == "Appointment_Booked") {
+            if ($data["Result"] == "Appointment_Booked") 
+            {
+              // $res_access_token = $this->getAccessToken();
+              // $data = json_decode($res_access_token, true);
+              // $access_token = $data['access_token'];
+              // $resPayment = $this->updatePayment($access_token);
+              // echo $resPayment;
               echo "<script>alert('Appointment Booked .')</script>";
-              echo "<script>document.getElementsByClassName('loadingIMG').style.display = 'none';</script>";
-              echo "<script>document.getElementsByClassName('loadingLabel').style.display = 'block';</script>";
-              return redirect()->back()->with('success_message','Appointment Booked .');              
-            }else {
+                // echo "<script>document.getElementsByClassName('loadingIMG').style.display = 'none';</script>";
+                // echo "<script>document.getElementsByClassName('loadingLabel').style.display = 'block';</script>";
+                return redirect()->back()->with('success_message','Appointment Booked .');              
+            } else 
+            {
               echo "<script>document.getElementsByClassName('loadingIMG').style.display = 'none';</script>";
               echo "<script>document.getElementsByClassName('loadingLabel').style.display = 'block';</script>";
               echo "<script>alert('Appointment Failed .')</script>";
             }
             // echo $mydata;
+      }
+
+    public function getAccessToken()
+    {
+            /**GET SERVICE CALL */
+            $method = "GET";
+            $url = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials";
+
+            // $result = $this->callAPI($method, $url, 1);
+            // $data = json_decode($result, true);
+            // // $data = $data["d"];
+            // echo $result;
+
+            $username = "Azs2KejU1ARvIL5JdJsARbV2gDrWmpOB";
+            $password = "hipGvFJbOxri330c";
+
+            $curl = curl_init();  
+            switch ($method) {
+              case "POST":
+                curl_setopt($curl, CURLOPT_POST, 1);
+                if ($data)
+                  curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+                break;
+              case "GET":
+                // curl_setopt($curl, CURLOPT_POST,1);
+                break;
+            }
+            curl_setopt($curl, CURLOPT_URL, $url);
+            /* Define Content Type */
+            curl_setopt($curl, CURLOPT_HTTPHEADER, array('content-type:application/json'));
+            /* Return JSON */
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+            // /* new connection instead of cached one */
+            curl_setopt($curl, CURLOPT_USERPWD, $username . ":" . $password);
+            // curl_setopt($curl, CURLOPT_FRESH_CONNECT, true);
+            $data = $result = curl_exec($curl);
+            curl_close($curl);
+
+            return $data;
+    }
+
+    public function updatePayment($access_token)
+    {
+      $authorisation = "Bearer ".$access_token;
+      $dates = date('Y/m/d H:i:s', time());
+      $dates = explode(' ', $dates);
+      $mdate = explode('/', $dates[0]);
+      $mtime = explode(':', $dates[1]);
+      $mString = $mdate[0].$mdate[1].$mdate[2].$mtime[0].$mtime[1].$mtime[2];
+
+      $postdata = [
+        "BusinessShortCode"=>"174379",    
+        "Password"=> base64_encode("174379+"."bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919+".$mString), // "OTU2NTAwNStiZmIyNzlmOWFhOWJkYmNmMTU4ZTk3ZGQ3MWE0NjdjZDJlMGM4OTMwNTliMTBmNzhlNmI3MmFkYTFlZDJjOTE5KzIwMjIwNDE5MTM0ODI4",    
+        "Timestamp"=>$mString,    
+        "TransactionType"=> "CustomerPayBillOnline",    
+        "Amount"=>"1",    
+        "PartyA"=>"254746609933",    
+        "PartyB"=>"174379",    
+        "PhoneNumber"=>"254746609933",    
+        "CallBackURL"=>"https://mydomain.com/pat",    
+        "AccountReference"=>"Test",    
+        "TransactionDesc"=>"Test"
+      ];
+
+      $postdata = json_encode($postdata);
+      echo $postdata;
+      /**POST SERVICE CALL */
+      $method = "POST";
+      $url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest";
+
+      $username = "Azs2KejU1ARvIL5JdJsARbV2gDrWmpOB";
+      $password = "hipGvFJbOxri330c";
+
+      $curl = curl_init();  
+      switch ($method) {
+        case "POST":
+          curl_setopt($curl, CURLOPT_POST, 1);
+          if ($postdata)
+            curl_setopt($curl, CURLOPT_POSTFIELDS, $postdata);
+          break;
+        case "GET":
+          // curl_setopt($curl, CURLOPT_POST,1);
+          break;
+      }
+      curl_setopt($curl, CURLOPT_URL, $url);
+      /* Define Content Type */
+      curl_setopt($curl, CURLOPT_HTTPHEADER, array('content-type:application/json','Authorization:'.$authorisation.'',));
+      /* Return JSON */
+      curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+      // /* new connection instead of cached one */
+      curl_setopt($curl, CURLOPT_USERPWD, $username . ":" . $password);
+      // curl_setopt($curl, CURLOPT_FRESH_CONNECT, true);
+      $result = curl_exec($curl);
+      curl_close($curl);
+      return $result;
     }
 
     public function reports(Request $request)
