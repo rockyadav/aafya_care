@@ -47,7 +47,15 @@ class HomeController extends Controller
         $city  = DB::table('cities')
                          ->where('status',1)
                          ->orderBy('name','asc')
-                         ->get();            
+                         ->get();
+        // $callbckResponse = urldecode(file_get_contents('php://input'));
+        // $callbckResponse = json_decode($callbckResponse, TRUE);
+        // print_r($callbckResponse);
+                    
+        // $callbckResponse = file_get_contents('php://input');        
+        // echo "content : === ".$callbckResponse;
+        // $callbckResponse = urldecode($callbckResponse);
+        // echo "urlencode : === ".$callbckResponse;
               /**POST SERVICE CALL */
       $method = "GET";
       $url = "http://elabcorpsupport.elabassist.com/Services/GlobalUserService.svc/SearchTest?labid=a76aeb22-c144-4748-a75c-9ba45ea80d8c";
@@ -345,11 +353,9 @@ class HomeController extends Controller
               // $data = json_decode($res_access_token, true);
               // $access_token = $data['access_token'];
               // $resPayment = $this->updatePayment($access_token);
-              // echo $resPayment;
+              // echo "\n"."Request Sent to Number : ".$resPayment."\n";
               echo "<script>alert('Appointment Booked .')</script>";
-                // echo "<script>document.getElementsByClassName('loadingIMG').style.display = 'none';</script>";
-                // echo "<script>document.getElementsByClassName('loadingLabel').style.display = 'block';</script>";
-                return redirect()->back()->with('success_message','Appointment Booked .');              
+              return redirect()->back()->with('success_message','Appointment Booked .');              
             } else 
             {
               echo "<script>document.getElementsByClassName('loadingIMG').style.display = 'none';</script>";
@@ -408,15 +414,15 @@ class HomeController extends Controller
       $mString = $mdate[0].$mdate[1].$mdate[2].$mtime[0].$mtime[1].$mtime[2];
 
       $postdata = [
-        "BusinessShortCode"=>"174379",    
-        "Password"=> base64_encode("174379+"."bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919+".$mString), // "OTU2NTAwNStiZmIyNzlmOWFhOWJkYmNmMTU4ZTk3ZGQ3MWE0NjdjZDJlMGM4OTMwNTliMTBmNzhlNmI3MmFkYTFlZDJjOTE5KzIwMjIwNDE5MTM0ODI4",    
+        "BusinessShortCode"=>"174379",
+        "Password"=> base64_encode("174379"."bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919".$mString), // "OTU2NTAwNStiZmIyNzlmOWFhOWJkYmNmMTU4ZTk3ZGQ3MWE0NjdjZDJlMGM4OTMwNTliMTBmNzhlNmI3MmFkYTFlZDJjOTE5KzIwMjIwNDE5MTM0ODI4",
         "Timestamp"=>$mString,    
         "TransactionType"=> "CustomerPayBillOnline",    
         "Amount"=>"1",    
         "PartyA"=>"254746609933",    
         "PartyB"=>"174379",    
         "PhoneNumber"=>"254746609933",    
-        "CallBackURL"=>"https://mydomain.com/pat",    
+        "CallBackURL"=>"https://zetaweb.elabassist.com/callback",    
         "AccountReference"=>"Test",    
         "TransactionDesc"=>"Test"
       ];
@@ -443,7 +449,7 @@ class HomeController extends Controller
       }
       curl_setopt($curl, CURLOPT_URL, $url);
       /* Define Content Type */
-      curl_setopt($curl, CURLOPT_HTTPHEADER, array('content-type:application/json','Authorization:'.$authorisation.'',));
+      curl_setopt($curl, CURLOPT_HTTPHEADER, array('content-type:application/json','Authorization:'.$authorisation.''));
       /* Return JSON */
       curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
       // /* new connection instead of cached one */
@@ -452,6 +458,18 @@ class HomeController extends Controller
       $result = curl_exec($curl);
       curl_close($curl);
       return $result;
+    }
+
+    public function callback(Request $request)
+    {
+       $callbckResponse = file_get_contents('php://input');
+        $callbckResponse = json_decode($callbckResponse, TRUE);
+
+      //  $callbckResponse = file_get_contents('php://input');
+       print_r($callbckResponse);
+      // echo $callbckResponse;
+      // return View::make('front.callback')
+      // -> with(compact('callbckResponse'));
     }
 
     public function reports(Request $request)

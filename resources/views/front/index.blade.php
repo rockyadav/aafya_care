@@ -127,18 +127,18 @@
 						<h6>+254 103 333 444</h6>
 					</div> -->
 
-					<div class="tillnoblock2">
+					<!-- <div class="tillnoblock2">
 										<img style="height: 40px;width: 80px;" src="{{url('public/frontassets/images/mpesa.jpeg')}}" alt="">
-					</div>
+					</div> -->
 						<div class="call-support">
 							<p>Call us for any question</p>
 							<h6>+254 103 333 444</h6>
 
-							<div class="tillnoblock">
+							<!-- <div class="tillnoblock">
 								<p class="tillno">Till No .</p>
 								<h6 class="tillno">9565005</h6>
 
-							</div>
+							</div> -->
 						</div>
 					
 				</div>
@@ -172,8 +172,8 @@
 				<div class="row">
 					<div class="col-lg-7">
 						<div class="banner-info-bg mt-5">
-							<h6> @if($slider!='') {{$slider->title}} @endif</h6>
-							<h5> @if($slider!='') {{$slider->description}} @endif</h5>
+							<!-- <h6> @if($slider!='') {{$slider->title}} @endif</h6>
+							<h5> @if($slider!='') {{$slider->description}} @endif</h5> -->
 						</div>
 					</div>
 					<div class="col-lg-4" id="form1">
@@ -245,8 +245,8 @@
   	<div class="row">
 		<div class="col-lg-7">
 			<div class="banner-info-bg mt-5">
-				<h6> @if($slider!='') {{$slider->title}} @endif</h6>
-				<h5> @if($slider!='') {{$slider->description}} @endif</h5>
+				<!-- <h6> @if($slider!='') {{$slider->title}} @endif</h6>
+				<h5> @if($slider!='') {{$slider->description}} @endif</h5> -->
 			</div>
 		</div>
 		<div class="col-lg-5">
@@ -613,7 +613,7 @@
 
 	<!-- footer-66 -->
 	<footer class="w3l-footer-66">
-		<div class="cpy-right py-3">
+		<div class="cpy-right py-3" style="position: relative;">
 
 			<p class="text-center">
 				<a href="{{url('laboratory-registration')}}">Laboratory Registration</a>
@@ -625,6 +625,13 @@
 
 			<p class="text-center">
 				<a href="{{url('telecaller-registration')}}">Employee Registration</a>
+			</p>
+
+			<p class="text-center" style="position: absolute; bottom: 17px;">
+				<a href="#">
+				<img style="height: 100px;width: 170px;" src="{{url('public/frontassets/images/mpesa-removebg-preview.png')}}" alt="">
+				</a>
+				<label for="Till No : ">Till No : <strong>9565005</strong></label>
 			</p>
 
 			<p class="text-center" style="font-size: 8px;">

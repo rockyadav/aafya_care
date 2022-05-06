@@ -14900,7 +14900,7 @@ p.title-para {
 
 .w3l-main-slider .banner-view:before {
   content: "";
-  background-color: rgba(13, 0, 26, 0.52);
+  /* background-color: rgba(13, 0, 26, 0.52); */
   position: absolute;
   top: 0;
   min-height: 100%;
