@@ -13,48 +13,53 @@
 	<link rel="stylesheet" href="{{url('public/frontassets/css/custom.css')}}">
 	<!-- End Testimonial CSS -->
 	<!-- Template CSS -->
-	<link href="//fonts.googleapis.com/css?family=Poppins:300,400,400i,500,600,700&display=swap"
-	 rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Poppins:300,400,400i,500,600,700&display=swap" rel="stylesheet">
 	<!-- Template CSS -->
 </head>
 <style type="text/css">
-.w3l-content-with-photo-4 .content-photo-info p {
-    padding-left: 30px;
-}
+	.w3l-content-with-photo-4 .content-photo-info p {
+		padding-left: 30px;
+	}
 
-.price-table span:first-child {
-    font-size: 1em !important;
-    
-}
+	.price-table span:first-child {
+		font-size: 1em !important;
 
-.price-table {
-    height: 400px;
-    overflow-y: auto;
-}
-.loadingLabel {
-	margin-bottom: 0px;
-}
-.loadingIMG {
-	display: none;
-}
-.tillnoblock {
-	margin-top: 5px;
-}
+	}
 
-.tillnoblock {
+	.price-table {
+		height: 400px;
+		overflow-y: auto;
+	}
+
+	.loadingLabel {
+		margin-bottom: 0px;
+	}
+
+	.loadingIMG {
+		display: none;
+	}
+
+	.tillnoblock {
+		margin-top: 5px;
+	}
+
+	.tillnoblock {
 		margin-top: 5px;
 		text-align: center;
 	}
-.tillnoblock2 {
+
+	.tillnoblock2 {
 		position: relative;
 		top: 28px;
 		left: 90px;
-}
+	}
+
 	.tillno {
-    font-size: 15px;
-				text-align: justify;
-				padding-left: 105px;
-}
+		font-size: 15px;
+		text-align: justify;
+		padding-left: 105px;
+	}
+
 	.purchasebtn {
 		position: sticky;
 		bottom: 1px;
@@ -69,21 +74,21 @@
 			<div class="container">
 				<div class="row">
 					<div class="social-top col-lg-5 mt-lg-0 mt-sm-6">
-							<div class="top-bar-text text-left"><a class="bk-button" href="#">BOOK ONLINE </a> You can
+						<div class="top-bar-text text-left"><a class="bk-button" href="#">BOOK ONLINE </a> You can
 							request appointment now !</div>
 					</div>
 
 					@if (session()->has('myUserData'))
 					<div class="social-top col-lg-3 mt-lg-0 mt-sm-6">
-							<div class="top-bar-text text-center"><a class="bk-button" href="{{url('reports')}}">REPORTS</a></div>
+						<div class="top-bar-text text-center"><a class="bk-button" href="{{url('reports')}}">REPORTS</a></div>
 					</div>
 
 					<div class="social-top col-lg-4 mt-lg-0 mt-sm-6">
-								@php $user = session('myUserData'); @endphp
-							<div class="top-bar-text text-right"> You are IN <b><i> @php echo $user['UserName']; @endphp ! </i></b> 
-								<a class="bk-button" href="#" onclick="Logout()">
-									Logout
-								</a>
+						@php $user = session('myUserData'); @endphp
+						<div class="top-bar-text text-right"> You are IN <b><i> @php echo $user['UserName']; @endphp ! </i></b>
+							<a class="bk-button" href="#" onclick="Logout()">
+								Logout
+							</a>
 						</div>
 					</div>
 					@endif
@@ -99,35 +104,33 @@
 		<nav class="navbar navbar-expand-lg navbar-light px-lg-0 py-0 px-3 stroke">
 			<div class="container">
 				<a class="navbar-brand" href="index.html">
-				<!-- if logo is image enable this  --> 
-						<a class="navbar-brand" href="{{url('/')}}">
-							<img src="{{url('public/frontassets/images/logo.png')}}" alt="logo" title="logo" style="width: 200px;"/>
-							<!-- height: 70px; -->
-						</a> 
-				<button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
-					data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="fa icon-expand fa-bars"></span>
-					<span class="fa icon-close fa-times"></span>
-				</button>
+					<!-- if logo is image enable this  -->
+					<a class="navbar-brand" href="{{url('/')}}">
+						<img src="{{url('public/frontassets/images/logo.png')}}" alt="logo" title="logo" style="width: 200px;" />
+						<!-- height: 70px; -->
+					</a>
+					<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="fa icon-expand fa-bars"></span>
+						<span class="fa icon-close fa-times"></span>
+					</button>
 
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					 <ul class="navbar-nav mx-lg-auto">
-						<!--<li class="nav-item active">
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav mx-lg-auto">
+							<!--<li class="nav-item active">
 							<a class="nav-link" href="index.html">Home</a>
 						</li>
 						
 						<li class="nav-item">
 							<a class="nav-link" href="contact.html">Contact</a>
 						</li>-->
-					</ul> 
-					
-					<!-- <div class="call-support">
+						</ul>
+
+						<!-- <div class="call-support">
 						<p>Call us for any question</p>
 						<h6>+254 103 333 444</h6>
 					</div> -->
 
-					<!-- <div class="tillnoblock2">
+						<!-- <div class="tillnoblock2">
 										<img style="height: 40px;width: 80px;" src="{{url('public/frontassets/images/mpesa.jpeg')}}" alt="">
 					</div> -->
 						<div class="call-support">
@@ -140,8 +143,8 @@
 
 							</div> -->
 						</div>
-					
-				</div>
+
+					</div>
 			</div>
 		</nav>
 		<!--//nav-->
@@ -149,20 +152,18 @@
 	<!-- //w3l-header -->
 	<!--banner-slider-->
 	<!-- main-slider -->
-	<?php 
-     if($slider!='')
-     {
-     	$img = "public/sliders/".$slider->slider_image;
-     }else{
-     	$img = "../images/banner1.jpg";
-     }
+	<?php
+	if ($slider != '') {
+		$img = "public/sliders/" . $slider->slider_image;
+	} else {
+		$img = "../images/banner1.jpg";
+	}
 	?>
 	<style type="text/css">
-	.w3l-main-slider .banner-view {
-		background: url({{$img}}) no-repeat center;
-		
-		}
+		.w3l-main-slider .banner-view {
+			background: url({{$img}}) no-repeat center;
 
+		}
 	</style>
 
 	<!-- ************** Login with otp ********************* -->
@@ -188,7 +189,7 @@
 											<div class="form-group">
 												<input type="text" name="moNumber" id="mobileNumber" class="form-control mobile_no" placeholder=" Enter Mobile Number *" required="">
 												<input type="email" name="loginEmail" id="loginEmail" class="form-control email_id mt-1" placeholder=" Email ID for OTP *" required="">
-												<p style="font-size: 12px;">You will recieve OTP on your <a href="#">Email ID</a></p>												
+												<p style="font-size: 12px;">You will recieve OTP on your <a href="#">Email ID</a></p>
 											</div>
 										</div>
 										<button type="submit" class="btn btn-primary submit">
@@ -206,7 +207,7 @@
 							<div class="consultation-grids">
 								<div class="apply-form">
 									<form action="{{url('ValidateOTP')}}" method="get" id="loginotp1">
-									<!-- {{ csrf_field() }} -->
+										<!-- {{ csrf_field() }} -->
 										<div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
 											<label for="Mobile Number">Enter OTP</label>
 											<input class="input100" id="mobileOtp" type="password" name="otp" placeholder="Otp" style="">
@@ -231,7 +232,7 @@
 							</div>
 						</div>
 					</div>
-					<p id="goa"> trait_exists</p>
+					<!-- <p id="goa"> trait_exists</p> -->
 	</section>
 
 
@@ -239,185 +240,185 @@
 
 	<!-- *******************login end*********************** -->
 
-<section class="w3l-main-slider" id="home" style="display:none;">
-<div class="banner-content banner-view">
-  <div class="container"> 
-  	<div class="row">
-		<div class="col-lg-7">
-			<div class="banner-info-bg mt-5">
-				<!-- <h6> @if($slider!='') {{$slider->title}} @endif</h6>
+	<section class="w3l-main-slider" id="home" style="display:none;">
+		<div class="banner-content banner-view">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-7">
+						<div class="banner-info-bg mt-5">
+							<!-- <h6> @if($slider!='') {{$slider->title}} @endif</h6>
 				<h5> @if($slider!='') {{$slider->description}} @endif</h5> -->
-			</div>
-		</div>
-		<div class="col-lg-5">
-			<div class="w3l-free-consultion mt-1">
-				<div class="consultation-grids">
-	<div class="apply-form">
-		<h5>Book Your Test</h5>
-		<?php /* @include('layouts.error-sucess-messages') */?>
-		<form action="{{url('bookingFormAction')}}" method="post" id="">
-			  {{ csrf_field() }}
-			<div class="admission-form11">
-				<div class="form-group">
-					<input type="text" class="form-control" placeholder="Full Name*" name="name" required="">
-				</div>
-				
-				<div class="form-group">
-					<input type="number" name="age" class="form-control mobile_no" placeholder="Age*" required="">
-				</div>
-<!-- 				
+						</div>
+					</div>
+					<div class="col-lg-5">
+						<div class="w3l-free-consultion mt-1">
+							<div class="consultation-grids">
+								<div class="apply-form">
+									<h5>Book Your Test</h5>
+									<?php /* @include('layouts.error-sucess-messages') */ ?>
+									<form action="{{url('bookingFormAction')}}" method="post" id="">
+										{{ csrf_field() }}
+										<div class="admission-form11">
+											<div class="form-group">
+												<input type="text" class="form-control" placeholder="Full Name*" name="name" required="">
+											</div>
+
+											<div class="form-group">
+												<input type="number" name="age" class="form-control mobile_no" placeholder="Age*" required="">
+											</div>
+											<!-- 				
 				<div class="form-group">
 					<input type="radio" name="gender" value="0" class="" required="">Male </br> 
 					<input type="radio" name="gender" value="0" class="" required="">Female
 				</div> -->
 
-				<!-- <div class="form-group">
+											<!-- <div class="form-group">
 					<input type="text" name="mobile" class="form-control mobile_no" placeholder="Phone Number*" required="">
 				</div> -->
 
-				<!-- <select class="form-control" name="city" required="">
+											<!-- <select class="form-control" name="city" required="">
 					<option value="">City/Town</option>
 					@foreach($city as $row)
 					<option value="{{$row->id}}">{{$row->name}}</option>
 					@endforeach
 				</select> -->
-			</div>
-			<select class="form-control test_option" name="test" required="">
-					<option value="">Select Test</option>
-					<!-- @foreach($tests as $test)
+										</div>
+										<select class="form-control test_option" name="test" required="">
+											<option value="">Select Test</option>
+											<!-- @foreach($tests as $test)
 					<option value="@php echo $test['TestID']; @endphp">@php echo $test['TestName']; @endphp</option>
 					@endforeach -->
-					<option value="1532" name="test">SARS COV 2 ANTIGEN TEST</option>
-					<option value="1224" name="test">SARS-CoV2 (COVID-19) Real Time RT PCR </option>
-					<option value="215" name="profile">PRE-EMPLOYMENT HEALTH CHECK UP</option>
-					<option value="219" name="profile">JOB HEALTH FITMENT HEALTH SCREENING</option>
-					<option value="225" name="profile">ANNUAL HEALTH SCREENING-FEMALE</option>
-					<option value="224" name="profile">ANNUAL HEALTH SCREEN -MALE</option>
-					<option value="1165" name="test">THYROID FUNCTION TEST</option>
-					<option value="226" name="profile">DIABETIC SCREENING-ADVANCED</option>
-					<option value="213" name="profile">LIPID PROFILE-COMPLETE</option>
-					<option value="240" name="profile">LIVER FUNCTION-BASIC</option>
-					<option value="241" name="profile">LIVER FUNCTION-ADVANCED</option>
-					<option value="218" name="profile">DOMESTIC WORKER HEALTH SCREENING</option>
-					<option value="1038" name="test">CHOLINESTERASE</option>
-			</select>
-			<input type="hidden" name="selectedTest" id="selectedTest" class="form-control">			
-			<input type="hidden" name="selectedTestType" id="selectedTestType" class="form-control">
-			<input type="hidden" name="selectedProfile" id="selectedProfile" class="form-control">
-			<div class="form-group">
-					<input type="text" name="bookDate" id="bookDate" class="form-control date_sel" placeholder="Date*" required="">
-				</div>
-				<div class="form-group">
-					<input type="text" name="bookTime" id="bookTime" onchange="setTime(this)" class="form-control time_sel" placeholder="Time*" required="" autocomplete="off">
-				</div>
-				<input type="hidden" name="selectedDateAndTime" id="selectedDateAndTime" class="form-control">
-				<label class="NOP" style="font-size: 12px;color: red;"></label>
-			<button type="submit" class="btn btn-primary submit btn_appointmnt">
-							<label for="" class="loadingLabel">Book Now</label>
-							<img src="{{url('public/frontassets/images/img.svg')}}" alt="spinner" class="loadingIMG">			
-			</button>
-		</form>
-	</div> 
+											<option value="1532" name="test">SARS COV 2 ANTIGEN TEST</option>
+											<option value="1224" name="test">SARS-CoV2 (COVID-19) Real Time RT PCR </option>
+											<option value="215" name="profile">PRE-EMPLOYMENT HEALTH CHECK UP</option>
+											<option value="219" name="profile">JOB HEALTH FITMENT HEALTH SCREENING</option>
+											<option value="225" name="profile">ANNUAL HEALTH SCREENING-FEMALE</option>
+											<option value="224" name="profile">ANNUAL HEALTH SCREEN -MALE</option>
+											<option value="1165" name="test">THYROID FUNCTION TEST</option>
+											<option value="226" name="profile">DIABETIC SCREENING-ADVANCED</option>
+											<option value="213" name="profile">LIPID PROFILE-COMPLETE</option>
+											<option value="240" name="profile">LIVER FUNCTION-BASIC</option>
+											<option value="241" name="profile">LIVER FUNCTION-ADVANCED</option>
+											<option value="218" name="profile">DOMESTIC WORKER HEALTH SCREENING</option>
+											<option value="1038" name="test">CHOLINESTERASE</option>
+										</select>
+										<input type="hidden" name="selectedTest" id="selectedTest" class="form-control">
+										<input type="hidden" name="selectedTestType" id="selectedTestType" class="form-control">
+										<input type="hidden" name="selectedProfile" id="selectedProfile" class="form-control">
+										<div class="form-group">
+											<input type="text" name="bookDate" id="bookDate" class="form-control date_sel" placeholder="Date*" required="">
+										</div>
+										<div class="form-group">
+											<input type="text" name="bookTime" id="bookTime" onchange="setTime(this)" class="form-control time_sel" placeholder="Time*" required="" autocomplete="off">
+										</div>
+										<input type="hidden" name="selectedDateAndTime" id="selectedDateAndTime" class="form-control">
+										<label class="NOP" style="font-size: 12px;color: red;"></label>
+										<button type="submit" class="btn btn-primary submit btn_appointmnt">
+											<label for="" class="loadingLabel">Book Now</label>
+											<img src="{{url('public/frontassets/images/img.svg')}}" alt="spinner" class="loadingIMG">
+										</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-  </div>
-</div>
-<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#otpModal">
+		<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#otpModal">
   Launch demo modal
 </button> -->
-<!-- Modal -->
+		<!-- Modal -->
 
-<div class="modal fade" id="otpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Verify OTP</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-     <form action="{{url('verifyOtp')}}" method="post" id="verifyOtpForm">
-					<input type="hidden" name="_token" value="{{ csrf_token() }}">
-      <div class="modal-body">
-        <div class="form-group">
-									<input type="text" name="otp" class="form-control" placeholder="Enter otp*" required="">
-								</div>
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <button type="button" class="btn btn-primary" id="resendOtp">Resend</button>
-      </div>
-      </form>
-    </div>
-  </div>
-</div>
+		<div class="modal fade" id="otpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Verify OTP</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<form action="{{url('verifyOtp')}}" method="post" id="verifyOtpForm">
+						<input type="hidden" name="_token" value="{{ csrf_token() }}">
+						<div class="modal-body">
+							<div class="form-group">
+								<input type="text" name="otp" class="form-control" placeholder="Enter otp*" required="">
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="submit" class="btn btn-primary">Submit</button>
+							<button type="button" class="btn btn-primary" id="resendOtp">Resend</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
 
-<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Message</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="form-group">
-								<span class="modal-title" id="exampleModalLabel">Your Appointment has been booked successfully .</span>
-								</div>
-      </div>
-      <div class="modal-footer">
-        <!-- <button type="button" class="btn btn-primary" id="resendOtp">Ok</button> -->
-      </div>
-    </div>
-  </div>
-</div>
+		<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Message</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="form-group">
+							<span class="modal-title" id="exampleModalLabel">Your Appointment has been booked successfully .</span>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<!-- <button type="button" class="btn btn-primary" id="resendOtp">Ok</button> -->
+					</div>
+				</div>
+			</div>
+		</div>
 
 	</section>
 
 	<div class="modal fade" id="SignUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-     <form action="{{url('Signup')}}" method="post" id="signUpForm">
-						<input type="hidden" name="_token" value="{{ csrf_token() }}">
-      <div class="modal-body">
-        <div class="form-group">
-									<input type="text" name="name" class="form-control" placeholder="name *" required="">
-								</div>
-								<div class="form-group">
-									<label for="">(Mobile Number will be your "Username")</label>
-									<input type="text" name="mobilemnumber" class="form-control" placeholder="Mobile Number *" required="">
-								</div>
-								<div class="form-group">
-									<input type="text" name="birthdate" id="birthdate" class="form-control" placeholder="Birth Date *" required="">
-								</div>
-								<div class="form-group">
-									<input type="email" name="email" class="form-control" placeholder="Enter Email *" required="">
-								</div>
-								<div class="form-group">
-									<label for="gender">Gender *</label>
-								<select name="gender" id="gender" required=""> 
-										<option value="0">Male</option>
-										<option value="1">Female</option>
-								</select>
-								<input type="hidden" name="namegender" id="idgender" value="0">
-								</div>
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </div>
-     </form>
-    </div>
-  </div>
-</div>
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<form action="{{url('Signup')}}" method="post" id="signUpForm">
+					<input type="hidden" name="_token" value="{{ csrf_token() }}">
+					<div class="modal-body">
+						<div class="form-group">
+							<input type="text" name="name" class="form-control" placeholder="name *" required="">
+						</div>
+						<div class="form-group">
+							<label for="">(Mobile Number will be your "Username")</label>
+							<input type="text" name="mobilemnumber" class="form-control" placeholder="Mobile Number *" required="">
+						</div>
+						<div class="form-group">
+							<input type="text" name="birthdate" id="birthdate" class="form-control" placeholder="Birth Date *" required="">
+						</div>
+						<div class="form-group">
+							<input type="email" name="email" class="form-control" placeholder="Enter Email *" required="">
+						</div>
+						<div class="form-group">
+							<label for="gender">Gender *</label>
+							<select name="gender" id="gender" required="">
+								<option value="0">Male</option>
+								<option value="1">Female</option>
+							</select>
+							<input type="hidden" name="namegender" id="idgender" value="0">
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 
 	<!-- /main-slider -->
 	<!-- //banner-slider-->
@@ -432,30 +433,30 @@
 				<div class="content-info-in row">
 					<div class="content-gd col-lg-6 pl-lg-4">
 						<p style="text-align: justify;padding-top: 20px;">Aafya.Care offers a total healthcare solution in helping the community in monitoring, maintaining and protecting one’s health.We’re here to put better health in your hands so you can feel your best today and long into the future.
-                       Aafya.Care has been introduced to take care of mitigating the growing health risks. Understanding your daily routine, we are providing you Preventive Health Screening by vialsiting your place to collect sample as per your schedule.<br>
+							Aafya.Care has been introduced to take care of mitigating the growing health risks. Understanding your daily routine, we are providing you Preventive Health Screening by vialsiting your place to collect sample as per your schedule.<br>
 
-                            •	COVID 19 Test<br>
-							•	Blood Test<br>
-							•	Medical Check-Up<br>
-							•	Online Medical Laboratory<br>
-                       </p>
+							• COVID 19 Test<br>
+							• Blood Test<br>
+							• Medical Check-Up<br>
+							• Online Medical Laboratory<br>
+						</p>
 					</div>
 					<div class="content-gd col-lg-6 pl-lg-4">
-						<p style="text-align: justify;"> 
-							Once the test is ordered, our qualified laboratory attendant visit you and take a blood sample.  Results are typically available within a couple of days (depending upon the test).  The results are sent directly to the individual but may also be forwarded to the individual’s physician upon request.  There are many benefits direct access lab testing has over the traditional process of going first to a doctor, who would then send the patient to a lab with a blood test referral.  Some of these benefits include preventive checkup, convenience, affordability, and confidentiality.
+						<p style="text-align: justify;">
+							Once the test is ordered, our qualified laboratory attendant visit you and take a blood sample. Results are typically available within a couple of days (depending upon the test). The results are sent directly to the individual but may also be forwarded to the individual’s physician upon request. There are many benefits direct access lab testing has over the traditional process of going first to a doctor, who would then send the patient to a lab with a blood test referral. Some of these benefits include preventive checkup, convenience, affordability, and confidentiality.
 							Our aim is to provide you the services about your health care that you can rely on as being accurate.
-                        </p>
+						</p>
 					</div>
 
 				</div>
-		</div>
+			</div>
 	</section>
 	<!-- //content-6-->
 	<!-- services block3 -->
 	<div class="w3l-open-block-services py-5">
 		<div class="container py-lg-5 pt-4">
 			<div class="row">
-				<div class="title-content text-center mb-5 col-md-12"> 
+				<div class="title-content text-center mb-5 col-md-12">
 					<h3 class="hny-title mb-5">Most Trusted Diagnostics. Most Affordable Rates</h3>
 				</div>
 				<div class="col-lg-3 col-md-6">
@@ -465,7 +466,7 @@
 						</div>
 						<h4 class="mission">Accredited <br>Labs</h4>
 						<div class="open-description">
-							<p>Certified by Office of the Director General of Health under Ministry of Health to Test Covid 19 and concerned tests from relevant Govenment departments.</p> 
+							<p>Certified by Office of the Director General of Health under Ministry of Health to Test Covid 19 and concerned tests from relevant Govenment departments.</p>
 						</div>
 					</div>
 				</div>
@@ -476,7 +477,7 @@
 						</div>
 						<h4 class="mission">Fast & Accurate <br>Reports</h4>
 						<div class="open-description">
-							<p>No need to follow up or spend time on transportation. A hassle free Report on your whatsapp! Just relax at your home to serve you in fastest possible way! </p> 
+							<p>No need to follow up or spend time on transportation. A hassle free Report on your whatsapp! Just relax at your home to serve you in fastest possible way! </p>
 						</div>
 					</div>
 				</div>
@@ -487,7 +488,7 @@
 						</div>
 						<h4 class="mission">FREE Sample<br> Collection</h4>
 						<div class="open-description" style="padding-bottom: 25px;">
-							<p>Just fill the form & relax! our trained Technician will visit your place as per your prescribed schedule and take the Sample!</p> 
+							<p>Just fill the form & relax! our trained Technician will visit your place as per your prescribed schedule and take the Sample!</p>
 							<p></p>
 						</div>
 					</div>
@@ -500,7 +501,7 @@
 						<h4 class="mission">SAFE & <br>Hygiene</h4>
 						<div class="open-description" style="padding-bottom: 25px;">
 							<p>Our lab environment or processes are fully scientific, safe, secure to ensure we must handle every test at utmost care.</p>
-							<p></p> 
+							<p></p>
 						</div>
 					</div>
 				</div>
@@ -511,31 +512,31 @@
 	<!-- /w3l-content-with-photo-4-->
 	<section class="w3l-content-with-photo-4">
 		<!-- /content-grids-->
-		<div class="content-photo-info py-5"> 
-			<div class="title-content text-left mb-lg-5 mt-4"> 
+		<div class="content-photo-info py-5">
+			<div class="title-content text-left mb-lg-5 mt-4">
 				<h3 class="hny-title text-center">Other Available Tests</h3>
 			</div>
 			<div class="container">
 				<div class="row row-flex">
 					@foreach($courses as $row)
-			        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-			            <div class="price-table pt-bg-black">
-			                <div>
-			                    <span>{{$row->course_name}}</span>
-			                    <span>Price Ksh {{$row->dis_price}}</span>
-			                    <span>Features included!</span>
-			                </div>
-			                <div class="text-center" style="text-align: center;height:520px;">
-			                <p><?php echo $row->description; ?>
-																			</p>
-																			</div>
-			                <a id="{{$row->id}}" class="purchasebtn">purchase</a>
-			            </div>
-			        </div>
-			        @endforeach
-			      
-		    	</div>
-		    </div>
+					<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+						<div class="price-table pt-bg-black">
+							<div>
+								<span>{{$row->course_name}}</span>
+								<span>Price Ksh {{$row->dis_price}}</span>
+								<span>Features included!</span>
+							</div>
+							<div class="text-center" style="text-align: center;height:520px;">
+								<p><?php echo $row->description; ?>
+								</p>
+							</div>
+							<a id="{{$row->id}}" class="purchasebtn">purchase</a>
+						</div>
+					</div>
+					@endforeach
+
+				</div>
+			</div>
 		</div>
 	</section>
 	<!-- /Covid-6-->
@@ -577,38 +578,38 @@
 	<!-- /Covid-6-->
 	<!--Testinomial-->
 	<section class="testimonial text-center">
-        <div class="container">
-            <div class="heading white-heading">
-                Testimonials
-            </div>
-            <div id="testimonial4" class="carousel slide testimonial4_indicators testimonial4_control_button thumb_scroll_x swipe_x" data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="2000">
-             
-                <div class="carousel-inner" role="listbox">
+		<div class="container">
+			<div class="heading white-heading">
+				Testimonials
+			</div>
+			<div id="testimonial4" class="carousel slide testimonial4_indicators testimonial4_control_button thumb_scroll_x swipe_x" data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="2000">
 
-                	 @php $i = 0; @endphp
-					   @foreach($testimonial as $test)
-					    @php $i++; @endphp
-                    <div class="carousel-item @if($i==1) active @endif">
-                        <div class="testimonial4_slide">
-                            <img src="{{url('public/testimonial/'.$test->image)}}" class="img-circle img-responsive" />
-                             <h4><?php echo $test->title; ?></h4>
-                            <p><?php echo $test->description; ?></p>
-                           
-                        </div>
-                    </div>
-                     @endforeach
-                  
-                </div>
-                <a class="carousel-control-prev" href="#testimonial4" data-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
-                </a>
-                <a class="carousel-control-next" href="#testimonial4" data-slide="next">
-                    <span class="carousel-control-next-icon"></span>
-                </a>
-            </div>
-        </div>
-    </section>
-	
+				<div class="carousel-inner" role="listbox">
+
+					@php $i = 0; @endphp
+					@foreach($testimonial as $test)
+					@php $i++; @endphp
+					<div class="carousel-item @if($i==1) active @endif">
+						<div class="testimonial4_slide">
+							<img src="{{url('public/testimonial/'.$test->image)}}" class="img-circle img-responsive" />
+							<h4><?php echo $test->title; ?></h4>
+							<p><?php echo $test->description; ?></p>
+
+						</div>
+					</div>
+					@endforeach
+
+				</div>
+				<a class="carousel-control-prev" href="#testimonial4" data-slide="prev">
+					<span class="carousel-control-prev-icon"></span>
+				</a>
+				<a class="carousel-control-next" href="#testimonial4" data-slide="next">
+					<span class="carousel-control-next-icon"></span>
+				</a>
+			</div>
+		</div>
+	</section>
+
 	<!-- end testimonial section -->
 
 	<!-- footer-66 -->
@@ -627,20 +628,31 @@
 				<a href="{{url('telecaller-registration')}}">Employee Registration</a>
 			</p>
 
+			<p class="text-center">
+				<a href="http://zetatest.elabassist.com/">Partner Laboratory Login</a>
+			</p>
+
 			<p class="text-center" style="position: absolute; bottom: 17px;">
 				<a href="#">
-				<img style="height: 100px;width: 170px;" src="{{url('public/frontassets/images/mpesa-removebg-preview.png')}}" alt="">
+					<img style="height: 100px;width: 170px;" src="{{url('public/frontassets/images/mpesa-removebg-preview.png')}}" alt="">
 				</a>
 				<label for="Till No : ">Till No : <strong>9565005</strong></label>
+
 			</p>
+
 
 			<p class="text-center" style="font-size: 8px;">
 				<a href="javascript:void(0)">A Part of Zeta Healthcare Limited</a>
 			</p>
+			<p>
+				<a href="https://www.facebook.com/pg/AafyaCare/shop/?referral_code=page_shop_tab&preview=1" target="_blank">
+					<img style="float:right;margin-top:-66px;margin-right:75px;" src="{{url('public/frontassets/images/icon_facebook.png')}}" alt="">
+				</a>
+			</p>
 
 		</div>
 
-		
+
 		<!-- move top -->
 		<button onclick="topFunction()" id="movetop" title="Go to top">
 			<span class="fa fa-level-up"></span>
@@ -649,7 +661,7 @@
 
 		<script>
 			// When the user scrolls down 20px from the top of the document, show the button
-			window.onscroll = function () {
+			window.onscroll = function() {
 				scrollFunction()
 			};
 
@@ -670,38 +682,37 @@
 		<!-- /move top -->
 	</footer>
 	<!--//footer-66 -->
-	<div class="pun"><!-- Place at bottom of page --></div>
+	<div class="pun">
+		<!-- Place at bottom of page -->
+	</div>
 	<style>
 		/* Start by setting display:none to make this hidden.
    Then we position it in relation to the viewport window
    with position:fixed. Width, height, top and left speak
    for themselves. Background we set to 80% white with
    our animation centered, and no-repeating */
-.pun {
-    display:    none;
-    position:   fixed;
-    z-index:    1000;
-    top:        0;
-    left:       0;
-    height:     100%;
-    width:      100%;
-    background: rgba( 255, 255, 255, .8 ) 
-                url('http://i.stack.imgur.com/FhHRx.gif') 
-                50% 50% 
-                no-repeat;
-}
+		.pun {
+			display: none;
+			position: fixed;
+			z-index: 1000;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			background: rgba(255, 255, 255, .8) url('http://i.stack.imgur.com/FhHRx.gif') 50% 50% no-repeat;
+		}
 
-/* When the body has the loading class, we turn
+		/* When the body has the loading class, we turn
    the scrollbar off with overflow:hidden */
-body.loading .pun {
-    overflow: hidden;   
-}
+		body.loading .pun {
+			overflow: hidden;
+		}
 
-/* Anytime the body has the loading class, our
+		/* Anytime the body has the loading class, our
    modal element will be visible */
-body.loading .pun {
-    display: block;
-}
+		body.loading .pun {
+			display: block;
+		}
 	</style>
 </body>
 
@@ -712,18 +723,18 @@ body.loading .pun {
 
 <!--//-->
 <script>
-	$(function () {
-		$('.navbar-toggler').click(function () {
+	$(function() {
+		$('.navbar-toggler').click(function() {
 			$('body').toggleClass('noscroll');
 		})
 	});
 
 	$('select.test_option').on('change', function() {
-  // alert( this.value );
+		// alert( this.value );
 		$("#selectedTest").val(this.value);
 		$("#selectedTestType").val(this.name);
 
-});
+	});
 </script>
 <!--/scroll-down-JS-->
 <!-- stats -->
@@ -737,115 +748,113 @@ body.loading .pun {
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
 <script>
-	$('select[name="gender"]').change(function(){
+	$('select[name="gender"]').change(function() {
 
 		var value = $(this).val()
 		$("#idgender").val(value)
-})
+	})
 </script>
 
 <script type="text/javascript">
 	$('.carousel').carousel({
-  interval: 2000
-})
+		interval: 2000
+	})
 </script>
 
 
 @if (session()->has('success_message'))
-  @if(session()->get('success_message')=="Success")
-	 <script type="text/javascript">
-	   $(document).ready(function () {
-	        $('#otpModal').modal('show');
+@if(session()->get('success_message')=="Success")
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#otpModal').modal('show');
 
-}); 
-	    </script>
-    @endif	
- @endif
-
-	@if (session()->has('success_email'))
-  @if(session()->get('success_email')=="Appointment Booked .")
-	 <script type="text/javascript">
-	   $(document).ready(function () {
-	        $('#successModal').modal('show');
-
-}); 
-	    </script>
-    @endif
- @endif
-
-	@if (session()->has('myUserData'))
-	 <script type="text/javascript">
-	   $(document).ready(function () {
-	        $('#home').show();
-									$('#home1').hide();
-
-}); 
-	    </script>
- @endif
-
-  <script type="text/javascript">
-			
-			var nop = JSON.parse(localStorage.getItem('pros'));
-			$('.NOP').text("Number of Profiles selected : " + nop.length == 0 || nop.length == null ? "0" : nop.length)
-
-	   $(document).ready(function () {
-	   $('#verifyOtpForm').on('submit',function(e) {
-        e.preventDefault();
-            var url = $(this).attr('action'),
-            post = $(this).attr('method'),
-            data = new FormData(this);
-
-            $.ajax({
-                url: url,
-                method: post,
-                data: data,
-                dataType: "json",
-                success: function(data){
-                     var message = data.message;
-                     if(data.status ==1){
-                       alert(message);
-					   $('#otpModal').modal('hide');
-					   location.reload(true);
-					}else{
-                        alert(message);
-                    }
-                },
-                error: function(xhr, status, error){
-                    alert(xhr.responseText);
-                },
-                processData: false,
-                contentType: false
-            });
-        }); 
-
-
-
-	   
-	   $("#resendOtp").click(function(){
-
-            $.ajax({
-               url:"{{url('resendOtp')}}",
-                method: 'GET',
-                dataType: "json",
-                success: function(data){
-                     var message = data.message;
-                     if(data.status ==1){
-                       alert(message);
-					}else{
-                        alert(message);
-                    }
-                },
-                error: function(xhr, status, error){
-                    alert(xhr.responseText);
-                },
-                processData: false,
-                contentType: false
-            });
-     
 	});
+</script>
+@endif
+@endif
 
-}); 
+@if (session()->has('success_email'))
+@if(session()->get('success_email')=="Appointment Booked .")
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#successModal').modal('show');
 
+	});
+</script>
+@endif
+@endif
+
+@if (session()->has('myUserData'))
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#home').show();
+		$('#home1').hide();
+
+	});
+</script>
+@endif
+
+<script type="text/javascript">
+	var nop = JSON.parse(localStorage.getItem('pros'));
+	$('.NOP').text("Number of Profiles selected : " + nop.length == 0 || nop.length == null ? "0" : nop.length)
+
+	$(document).ready(function() {
+		$('#verifyOtpForm').on('submit', function(e) {
+			e.preventDefault();
+			var url = $(this).attr('action'),
+				post = $(this).attr('method'),
+				data = new FormData(this);
+
+			$.ajax({
+				url: url,
+				method: post,
+				data: data,
+				dataType: "json",
+				success: function(data) {
+					var message = data.message;
+					if (data.status == 1) {
+						alert(message);
+						$('#otpModal').modal('hide');
+						location.reload(true);
+					} else {
+						alert(message);
+					}
+				},
+				error: function(xhr, status, error) {
+					alert(xhr.responseText);
+				},
+				processData: false,
+				contentType: false
+			});
+		});
+
+
+
+
+		$("#resendOtp").click(function() {
+
+			$.ajax({
+				url: "{{url('resendOtp')}}",
+				method: 'GET',
+				dataType: "json",
+				success: function(data) {
+					var message = data.message;
+					if (data.status == 1) {
+						alert(message);
+					} else {
+						alert(message);
+					}
+				},
+				error: function(xhr, status, error) {
+					alert(xhr.responseText);
+				},
+				processData: false,
+				contentType: false
+			});
+
+		});
+
+	});
 </script>
 
 
@@ -857,149 +866,149 @@ body.loading .pun {
 <script src="https://unpkg.com/js-datepicker"></script>
 <script>
 	$(".btn_appointmnt").click(function() {
-				document.getElementsByClassName('loadingIMG').style.display = 'block';
-    document.getElementsByClassName('loadingLabel').style.display = 'none';		
+		document.getElementsByClassName('loadingIMG').style.display = 'block';
+		document.getElementsByClassName('loadingLabel').style.display = 'none';
 	})
 </script>
 <script>
-    // const datepicker = require('js-datepicker')
-    const picker = datepicker('#bookDate', {
-        // Event callbacks.
-        onSelect: instance => {
-            // Show which date was selected.
-            console.log(instance.dateSelected)
-        },
+	// const datepicker = require('js-datepicker')
+	const picker = datepicker('#bookDate', {
+		// Event callbacks.
+		onSelect: instance => {
+			// Show which date was selected.
+			console.log(instance.dateSelected)
+		},
 
-        onShow: instance => {
-            // console.log('Calendar showing.')
-        },
+		onShow: instance => {
+			// console.log('Calendar showing.')
+		},
 
-        onHide: instance => {
-            // console.log('Calendar hidden.')
-        },
+		onHide: instance => {
+			// console.log('Calendar hidden.')
+		},
 
-        onMonthChange: instance => {
-            // Show the month of the selected date.
-            // console.log(instance.currentMonthName)
-        },
+		onMonthChange: instance => {
+			// Show the month of the selected date.
+			// console.log(instance.currentMonthName)
+		},
 
-        // Customizations.
-        formatter: (input, date, instance) => {
-            // This will display the date as `1/1/2019`.
-            const v = date.toLocaleDateString()
-            var dob = v.split("/")
-            var b = dob[1] + "-" + dob[0] + "-" + dob[2]
-												
-            input.value = b
-            $("#bookDate").html(b);
+		// Customizations.
+		formatter: (input, date, instance) => {
+			// This will display the date as `1/1/2019`.
+			const v = date.toLocaleDateString()
+			var dob = v.split("/")
+			var b = dob[1] + "-" + dob[0] + "-" + dob[2]
 
-        },
+			input.value = b
+			$("#bookDate").html(b);
 
-        position: 'bl', // Top right.
-        startDay: 1, // Calendar week starts on a Monday.
-        customDays: ['S', 'M', 'T', 'W', 'Th', 'F', 'S'],
-        customMonths: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-        overlayButton: 'Go!',
-        overlayPlaceholder: 'Enter a 4-digit year',
+		},
 
-        // Settings.
-        alwaysShow: false, // Never hide the calendar.
-        dateSelected: new Date(), // Today is selected.
-        maxDate: new Date(2099, 0, 1), // Jan 1st, 2099.
-        minDate: new Date(1900, 1, 1), // June 1st, 2016.
-        startDate: new Date(), // This month.
-        showAllDates: true, // Numbers for leading & trailing days outside the current month will show.
+		position: 'bl', // Top right.
+		startDay: 1, // Calendar week starts on a Monday.
+		customDays: ['S', 'M', 'T', 'W', 'Th', 'F', 'S'],
+		customMonths: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+		overlayButton: 'Go!',
+		overlayPlaceholder: 'Enter a 4-digit year',
 
-        // Disabling things.
-        noWeekends: false, // Saturday's and Sunday's will be unselectable.
-        disabledDates: [new Date(2050, 0, 1), new Date(2050, 0, 3)], // Specific disabled dates.
-        disableMobile: true, // Conditionally disabled on mobile devices.
-        disableYearOverlay: false, // Clicking the year or month will *not* bring up the year overlay.
+		// Settings.
+		alwaysShow: false, // Never hide the calendar.
+		dateSelected: new Date(), // Today is selected.
+		maxDate: new Date(2099, 0, 1), // Jan 1st, 2099.
+		minDate: new Date(1900, 1, 1), // June 1st, 2016.
+		startDate: new Date(), // This month.
+		showAllDates: true, // Numbers for leading & trailing days outside the current month will show.
 
-        // ID - be sure to provide a 2nd picker with the same id to create a daterange pair.
-        id: 2
-    })
-    picker.calendarContainer.style.setProperty('font-size', '1.0rem')
+		// Disabling things.
+		noWeekends: false, // Saturday's and Sunday's will be unselectable.
+		disabledDates: [new Date(2050, 0, 1), new Date(2050, 0, 3)], // Specific disabled dates.
+		disableMobile: true, // Conditionally disabled on mobile devices.
+		disableYearOverlay: false, // Clicking the year or month will *not* bring up the year overlay.
+
+		// ID - be sure to provide a 2nd picker with the same id to create a daterange pair.
+		id: 2
+	})
+	picker.calendarContainer.style.setProperty('font-size', '1.0rem')
 </script>
 
 <script>
-    // const datepicker = require('js-datepicker')
-    const dtpicker = datepicker('#birthdate', {
-        // Event callbacks.
-        onSelect: instance => {
-            // Show which date was selected.
-            console.log(instance.dateSelected)
-        },
+	// const datepicker = require('js-datepicker')
+	const dtpicker = datepicker('#birthdate', {
+		// Event callbacks.
+		onSelect: instance => {
+			// Show which date was selected.
+			console.log(instance.dateSelected)
+		},
 
-        onShow: instance => {
-            // console.log('Calendar showing.')
-        },
+		onShow: instance => {
+			// console.log('Calendar showing.')
+		},
 
-        onHide: instance => {
-            // console.log('Calendar hidden.')
-        },
+		onHide: instance => {
+			// console.log('Calendar hidden.')
+		},
 
-        onMonthChange: instance => {
-            // Show the month of the selected date.
-            // console.log(instance.currentMonthName)
-        },
+		onMonthChange: instance => {
+			// Show the month of the selected date.
+			// console.log(instance.currentMonthName)
+		},
 
-        // Customizations.
-        formatter: (input, date, instance) => {
-            // This will display the date as `1/1/2019`.
-            const v = date.toLocaleDateString()
-            var dob = v.split("/")
-												var c = dob[0] + "-" + dob[1] + "-" + dob[2]
-												
-												$("#birthdate").val(c);
+		// Customizations.
+		formatter: (input, date, instance) => {
+			// This will display the date as `1/1/2019`.
+			const v = date.toLocaleDateString()
+			var dob = v.split("/")
+			var c = dob[0] + "-" + dob[1] + "-" + dob[2]
 
-        },
+			$("#birthdate").val(c);
 
-        position: 'bl', // Top right.
-        startDay: 1, // Calendar week starts on a Monday.
-        customDays: ['S', 'M', 'T', 'W', 'Th', 'F', 'S'],
-        customMonths: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-        overlayButton: 'Go!',
-        overlayPlaceholder: 'Enter a 4-digit year',
+		},
 
-        // Settings.
-        alwaysShow: false, // Never hide the calendar.
-        dateSelected: new Date(), // Today is selected.
-        maxDate: new Date(2099, 0, 1), // Jan 1st, 2099.
-        minDate: new Date(1850, 1, 1), // June 1st, 2016.
-        startDate: new Date(), // This month.
-        showAllDates: true, // Numbers for leading & trailing days outside the current month will show.
+		position: 'bl', // Top right.
+		startDay: 1, // Calendar week starts on a Monday.
+		customDays: ['S', 'M', 'T', 'W', 'Th', 'F', 'S'],
+		customMonths: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+		overlayButton: 'Go!',
+		overlayPlaceholder: 'Enter a 4-digit year',
 
-        // Disabling things.
-        noWeekends: false, // Saturday's and Sunday's will be unselectable.
-        disabledDates: [new Date(2050, 0, 1), new Date(2050, 0, 3)], // Specific disabled dates.
-        disableMobile: true, // Conditionally disabled on mobile devices.
-        disableYearOverlay: false, // Clicking the year or month will *not* bring up the year overlay.
+		// Settings.
+		alwaysShow: false, // Never hide the calendar.
+		dateSelected: new Date(), // Today is selected.
+		maxDate: new Date(2099, 0, 1), // Jan 1st, 2099.
+		minDate: new Date(1850, 1, 1), // June 1st, 2016.
+		startDate: new Date(), // This month.
+		showAllDates: true, // Numbers for leading & trailing days outside the current month will show.
 
-        // ID - be sure to provide a 2nd picker with the same id to create a daterange pair.
-        id: 2
-    })
-    picker.calendarContainer.style.setProperty('font-size', '1.0rem')
+		// Disabling things.
+		noWeekends: false, // Saturday's and Sunday's will be unselectable.
+		disabledDates: [new Date(2050, 0, 1), new Date(2050, 0, 3)], // Specific disabled dates.
+		disableMobile: true, // Conditionally disabled on mobile devices.
+		disableYearOverlay: false, // Clicking the year or month will *not* bring up the year overlay.
+
+		// ID - be sure to provide a 2nd picker with the same id to create a daterange pair.
+		id: 2
+	})
+	picker.calendarContainer.style.setProperty('font-size', '1.0rem')
 </script>
 
 <script>
-    $('#bookTime').datetimepicker({
-        datepicker: false,
-        timepicker: true,
-        formatDate: 'Y/m/d',
-        format: 'H:i',
-        step: 5,
-    });
+	$('#bookTime').datetimepicker({
+		datepicker: false,
+		timepicker: true,
+		formatDate: 'Y/m/d',
+		format: 'H:i',
+		step: 5,
+	});
 
-    function setTime() {
-        var bookTime = $('#bookTime').val();
-        bookTime = bookTime + ":00"
-        var bookDate = $('#bookDate').val();
-        var da = bookDate.split("-");
-        var dat = da[2] + "-" + da[1] + "-" + da[0];
-        bookDate = dat + " " + bookTime;
-        $("#selectedDateAndTime").val(bookDate);
-    }
+	function setTime() {
+		var bookTime = $('#bookTime').val();
+		bookTime = bookTime + ":00"
+		var bookDate = $('#bookDate').val();
+		var da = bookDate.split("-");
+		var dat = da[2] + "-" + da[1] + "-" + da[0];
+		bookDate = dat + " " + bookTime;
+		$("#selectedDateAndTime").val(bookDate);
+	}
 </script>
 <!-- ************** -->
 
@@ -1008,11 +1017,11 @@ body.loading .pun {
 	$('#loginotp').on('submit', function(e) {
 		e.preventDefault();
 		var url = $(this).attr('action');
-			var post = $(this).attr('method');
+		var post = $(this).attr('method');
 		var enteredNumber = document.getElementById("mobileNumber").value;
 		var enteredEmail = document.getElementById("loginEmail").value;
-		url = url+"?number="+enteredNumber+"&email="+enteredEmail+""
-		
+		url = url + "?number=" + enteredNumber + "&email=" + enteredEmail + ""
+
 		// console.log(url);
 		// console.log(post);
 		// console.log(newUser);
@@ -1021,7 +1030,7 @@ body.loading .pun {
 			url: url,
 			method: "GET",
 			dataType: "json",
-			beforeSend: function(){
+			beforeSend: function() {
 				$('.loadingIMG').show();
 				$('.loadingLabel').hide();
 			},
@@ -1029,19 +1038,17 @@ body.loading .pun {
 				var daataa = data.d;
 				console.log(data);
 				// var message = data.message;
-				if (daataa.Result == "Success") 
-				{
+				if (daataa.Result == "Success") {
 					alert("Kindly check your mail for OTP . Thank You !");
 					localStorage.setItem("UserData", JSON.stringify(daataa));
 					$("#form1").hide();
 					$("#form2").show();
 					$("#home").hide();
-				} else 
-				{
-						alert("OTP not working. Please contact zeta Healthcare .")
+				} else {
+					alert("OTP not working. Please contact zeta Healthcare .")
 				}
 			},
-			complete: function(){
+			complete: function() {
 				$('.loadingIMG').hide();
 				$('.loadingLabel').show();
 			},
@@ -1052,37 +1059,35 @@ body.loading .pun {
 			contentType: false
 		});
 	});
-
 </script>
 <!-- ************** -->
 
 <script>
 	$('#loginotp1').on('submit', function(e) {
 		e.preventDefault();
-			var mainOTP = document.getElementById("mobileOtp").value;
-			var mainUser = JSON.parse(localStorage.getItem("UserData"));
+		var mainOTP = document.getElementById("mobileOtp").value;
+		var mainUser = JSON.parse(localStorage.getItem("UserData"));
 
 
 		if (mainOTP == "") {
 			alert("Please enter OTP");
 		} else if (mainUser.UserName != "" && mainOTP != "") {
-			var varifyOTP = 
-			{
+			var varifyOTP = {
 				"objSP": {
-						"Task": 2,
-						"UserName": mainUser.UserName,
-						"OTP": mainOTP
+					"Task": 2,
+					"UserName": mainUser.UserName,
+					"OTP": mainOTP
 				}
 			}
 			var url = "{{url('ValidateOTP')}}"
 
-				$.ajax({
+			$.ajax({
 				cache: false,
 				type: "GET",
-				url: url +"?otp="+mainOTP+"",
-				beforeSend: function(){
-				$('.loadingIMG').show();
-				$('.loadingLabel').hide();
+				url: url + "?otp=" + mainOTP + "",
+				beforeSend: function() {
+					$('.loadingIMG').show();
+					$('.loadingLabel').hide();
 				},
 				data: JSON.stringify(varifyOTP),
 				dataType: "json",
@@ -1106,13 +1111,13 @@ body.loading .pun {
 						}
 					}
 				},
-				complete: function(){
-				$('.loadingIMG').hide();
-				$('.loadingLabel').show();
-			},
+				complete: function() {
+					$('.loadingIMG').hide();
+					$('.loadingLabel').show();
+				},
 			});
 
-			}
+		}
 	});
 	// 	function validateOTP() {
 	// 		var mainOTP = document.getElementById("mobileOtp").value;
@@ -1160,70 +1165,64 @@ body.loading .pun {
 	// 		}
 	// }
 
-	function Logout() 
-	{
+	function Logout() {
 
 		var url = "{{url('Logout')}}"
 		$.ajax({
-				cache: false,
-				type: "GET",
-				url: url,
-				beforeSend: function() {},
-				dataType: "json",
-				contentType: "application/json; charset=utf-8",
-				success: function(obj) {
-					// alert(obj)
-						localStorage.removeItem('myUserData');
-						localStorage.removeItem('pros');
-						window.location.reload();
-				},
-			});
+			cache: false,
+			type: "GET",
+			url: url,
+			beforeSend: function() {},
+			dataType: "json",
+			contentType: "application/json; charset=utf-8",
+			success: function(obj) {
+				// alert(obj)
+				localStorage.removeItem('myUserData');
+				localStorage.removeItem('pros');
+				window.location.reload();
+			},
+		});
 	}
 
-	function addProfile(elem)
-	{
-						var iiD = $(elem).attr("id")
-						var zetaPorfiles = JSON.parse(localStorage.getItem('pros'));
+	function addProfile(elem) {
+		var iiD = $(elem).attr("id")
+		var zetaPorfiles = JSON.parse(localStorage.getItem('pros'));
 
-						if(zetaPorfiles != null)
-							{
-									if(zetaPorfiles.includes(iiD))
-									{
-										let index = zetaPorfiles.indexOf(iiD);
-											$(elem).text("Purchased");
-											$(elem).css('color', 'red');
-									}else {
-										zetaPorfiles.push(iiD);
-										$('.NOP').text("Number of Profiles selected : " + zetaPorfiles.length)
-										localStorage.setItem('pros',JSON.stringify(zetaPorfiles))
-										$("#selectedProfile").val(zetaPorfiles.toString());
-									}
-						}
-						else 
-						{
-							zetaPorfiles = [iiD];
-							$('.NOP').text("Number of Profiles selected : " + zetaPorfiles.length)
-							localStorage.setItem('pros',JSON.stringify(zetaPorfiles))
-							$("#selectedProfile").val(zetaPorfiles.toString());
-						}
+		if (zetaPorfiles != null) {
+			if (zetaPorfiles.includes(iiD)) {
+				let index = zetaPorfiles.indexOf(iiD);
+				$(elem).text("Purchased");
+				$(elem).css('color', 'red');
+			} else {
+				zetaPorfiles.push(iiD);
+				$('.NOP').text("Number of Profiles selected : " + zetaPorfiles.length)
+				localStorage.setItem('pros', JSON.stringify(zetaPorfiles))
+				$("#selectedProfile").val(zetaPorfiles.toString());
+			}
+		} else {
+			zetaPorfiles = [iiD];
+			$('.NOP').text("Number of Profiles selected : " + zetaPorfiles.length)
+			localStorage.setItem('pros', JSON.stringify(zetaPorfiles))
+			$("#selectedProfile").val(zetaPorfiles.toString());
+		}
 
-							$(elem).text("Purchased");
-							$(elem).css('color', 'red');
-													
-						// var url = "{{url('cartprofiles')}}"
-						// $.ajax({
-						// 		cache: false,
-						// 		type: "GET",
-						// 		url: url+"?profiles="+zetaPorfiles.toString()+"",
-						// 		beforeSend: function() {},
-						// 		dataType: "json",
-						// 		contentType: "application/json; charset=utf-8",
-						// 		success: function(obj) {
-						// 			// alert(obj)
-						// 			$(elem).text("Purchased");
-						// 			$(elem).css('color', 'red')
-						// 		},
-						// 	});
-						// window.location.reload();
+		$(elem).text("Purchased");
+		$(elem).css('color', 'red');
+
+		// var url = "{{url('cartprofiles')}}"
+		// $.ajax({
+		// 		cache: false,
+		// 		type: "GET",
+		// 		url: url+"?profiles="+zetaPorfiles.toString()+"",
+		// 		beforeSend: function() {},
+		// 		dataType: "json",
+		// 		contentType: "application/json; charset=utf-8",
+		// 		success: function(obj) {
+		// 			// alert(obj)
+		// 			$(elem).text("Purchased");
+		// 			$(elem).css('color', 'red')
+		// 		},
+		// 	});
+		// window.location.reload();
 	}
 </script>
