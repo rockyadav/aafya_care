@@ -196,7 +196,7 @@
 											<label for="" class="loadingLabel">Send OTP</label>
 											<img src="{{url('public/frontassets/images/img.svg')}}" alt="spinner" class="loadingIMG">
 										</button>
-										<p>Don't have an account ? <a href="#" data-toggle="modal" data-target="#SignUpModal">Sign up</a></p>
+										<p>Don't have an account ? <a href="#" id="idSignUp" data-toggle="modal" data-target="#SignUpModal">Sign up</a></p>
 									</form>
 								</div>
 							</div>
@@ -722,6 +722,13 @@
 <!-- disable body scroll which navbar is in active -->
 
 <!--//-->
+<script>
+
+	$('.purchasebtn').click(function() {
+
+		$('#idSignUp').click();
+	})
+</script>
 <script>
 	$(function() {
 		$('.navbar-toggler').click(function() {

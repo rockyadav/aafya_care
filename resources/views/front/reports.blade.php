@@ -144,6 +144,9 @@
 							<span class="fa fa-signal service-icon" aria-hidden="true"></span>
 						</div>
 						<h4 class="mission">@php echo $repo['PatientName']; @endphp</h4>
+						<p>
+						Tests :- @php echo $repo['TotalTestList']; @endphp
+						</p>
 						<div class="open-description">
 							<p></p>
 							<button class="btn btn-primary btnReport" url="@php echo $repo['PDFFileName']; @endphp" id="@php echo $repo['TestRegnID']; @endphp" style="margin-top: 25px;">Report</button>
@@ -159,6 +162,9 @@
 							<span class="fa fa-assistive-listening-systems service-icon" aria-hidden="true"></span>
 						</div>
 						<h4 class="mission">@php echo $repo['PatientName']; @endphp</h4>
+						<p>
+						Tests :- @php echo $repo['TotalTestList']; @endphp
+						</p>
 						<div class="open-description">
 							<!-- <p>No need to follow up or spend time on transportation. A hassle free Report on your whatsapp! Just relax at your home to serve you in fastest possible way! </p>  -->
 							<button class="btn btn-primary btnReport" url="@php echo $repo['PDFFileName']; @endphp" id="@php echo $repo['TestRegnID']; @endphp" style="margin-top: 25px;">Report</button>
@@ -174,6 +180,9 @@
 							<span class="fa fa-diamond service-icon" aria-hidden="true"></span>
 						</div>
 						<h4 class="mission">@php echo $repo['PatientName']; @endphp</h4>
+						<p>
+						Tests :- @php echo $repo['TotalTestList']; @endphp
+						</p>
 						<div class="open-description" style="padding-bottom: 25px;">
 							<!-- <p>Just fill the form & relax! our trained Technician will visit your place as per your prescribed schedule and take the Sample!</p> 
 							<p></p> -->
@@ -190,6 +199,9 @@
 							<span class="fa fa-magic service-icon" aria-hidden="true"></span>
 						</div>
 						<h4 class="mission">@php echo $repo['PatientName']; @endphp</h4>
+						<p>
+						Tests :- @php echo $repo['TotalTestList']; @endphp
+						</p>
 						<div class="open-description" style="padding-bottom: 25px;">
 							<!-- <p>Our lab environment or processes are fully scientific, safe, secure to ensure we must handle every test at utmost care.</p>
 							<p></p>  -->
