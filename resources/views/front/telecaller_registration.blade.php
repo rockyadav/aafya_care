@@ -275,30 +275,50 @@
     <!-- footer-66 -->
     <footer class="w3l-footer-66">
         <div class="cpy-right py-3">
-            <p class="text-center">
-                <a href="{{url('laboratory-registration')}}">Laboratory Registration</a>
-            </p>
+            <div class="row">
+                <div class="col-sm-4 col-lg-4 col-md-4">
+                    <p class="text-center" style="position: absolute; bottom: 17px;">
+                        <a href="#">
+                            <img style="height: 100px;width: 170px;" src="{{url('public/frontassets/images/mpesa-removebg-preview.png')}}" alt="">
+                        </a>
+                        <label for="Till No : ">Till No : <strong>9565005</strong></label>
 
-            <p class="text-center">
-                <a href="{{url('sample-collector-registration')}}">Sample Collector Registration</a>
-            </p>
+                    </p>
+                </div>
+                <div class="col-sm-4 col-lg-4 col-md-4">
+                    <p class="text-center">
+                        <a href="{{url('laboratory-registration')}}">Laboratory Registration</a>
+                    </p>
 
-            <p class="text-center">
-                <a href="{{url('telecaller-registration')}}">Employee Registration</a>
-            </p>
+                    <p class="text-center">
+                        <a href="{{url('sample-collector-registration')}}">Sample Collector Registration</a>
+                    </p>
 
-            <p class="text-center">
-                <a href="http://zetatest.elabassist.com/">Partner Laboratory Login</a>
-            </p>
+                    <p class="text-center">
+                        <a href="{{url('telecaller-registration')}}">Employee Registration</a>
+                    </p>
 
-            <p class="text-center" style="font-size: 8px;">
-                <a href="javascript:void(0)">A Part of Zeta Healthcare Limited</a>
-            </p>
-            <p>
-                <a href="https://www.facebook.com/pg/AafyaCare/shop/?referral_code=page_shop_tab&preview=1" target="_blank">
-                    <img style="float:right;margin-top:-66px;margin-right:75px;" src="{{url('public/frontassets/images/icon_facebook.png')}}" alt="">
-                </a>
-            </p>
+                    <p class="text-center">
+                        <a href="http://zetatest.elabassist.com/">Partner Laboratory Login</a>
+                    </p>
+                    <p class="text-center" style="font-size: 8px;">
+                        <a href="javascript:void(0)">A Part of Zeta Healthcare Limited</a>
+                    </p>
+                </div>
+                <div class="col-sm-4 col-lg-4 col-md-4">
+                    <p>
+                        <a href="{{url('public/frontassets/apk/Zeta-06-02-22.apk.apk')}}" download="Zeta-06-02-22.apk.apk">
+                            <img style="float:right;margin-right:75px;margin-top:5px;" src="{{url('public/frontassets/images/playstore.png')}}" alt="playstore logo">
+                        </a>
+                    </p>
+                    <p class="text-center">
+                        <a href="https://www.facebook.com/pg/AafyaCare/shop/?referral_code=page_shop_tab&preview=1" target="_blank">
+                            <img style="float:right;margin-right:15px;" src="{{url('public/frontassets/images/icon_facebook.png')}}" alt="fb logo">
+                        </a>
+                    </p>
+
+                </div>
+            </div>
         </div>
 
 
