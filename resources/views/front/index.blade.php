@@ -530,7 +530,7 @@
 								<p><?php echo $row->description; ?>
 								</p>
 							</div>
-							<a id="{{$row->id}}" class="purchasebtn">purchase</a>
+							<a id="{{$row->id}}" class="purchasebtn">Book Now</a>
 						</div>
 					</div>
 					@endforeach
