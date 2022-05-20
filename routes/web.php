@@ -204,7 +204,7 @@ Route::post('Signup','HomeController@Signup');
 
 Route::get('cartprofiles','HomeController@addProfilesToCart');
 
-Route::get('callback','HomeController@callback');
+Route::get('confirmpaymnt','HomeController@callback');
 
 
 

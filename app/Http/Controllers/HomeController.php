@@ -349,13 +349,13 @@ class HomeController extends Controller
             // echo $result;
             if ($data["Result"] == "Appointment_Booked") 
             {
-              // $res_access_token = $this->getAccessToken();
-              // $data = json_decode($res_access_token, true);
-              // $access_token = $data['access_token'];
-              // $resPayment = $this->updatePayment($access_token);
-              // echo "\n"."Request Sent to Number : ".$resPayment."\n";
+              $res_access_token = $this->getAccessToken();
+              $data = json_decode($res_access_token, true);
+              $access_token = $data['access_token'];
+              $resPayment = $this->updatePayment($access_token);
+              echo "\n"."Request Sent to Number : ".$resPayment."\n";
               echo "<script>alert('Appointment Booked .')</script>";
-              return redirect()->back()->with('success_message','Appointment Booked .');              
+              // return redirect()->back()->with('success_message','Appointment Booked .');              
             } else 
             {
               echo "<script>document.getElementsByClassName('loadingIMG').style.display = 'none';</script>";
@@ -394,7 +394,7 @@ class HomeController extends Controller
             /* Define Content Type */
             curl_setopt($curl, CURLOPT_HTTPHEADER, array('content-type:application/json'));
             /* Return JSON */
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
             // /* new connection instead of cached one */
             curl_setopt($curl, CURLOPT_USERPWD, $username . ":" . $password);
             // curl_setopt($curl, CURLOPT_FRESH_CONNECT, true);
@@ -422,7 +422,7 @@ class HomeController extends Controller
         "PartyA"=>"254746609933",    
         "PartyB"=>"174379",    
         "PhoneNumber"=>"254746609933",    
-        "CallBackURL"=>"https://zetaweb.elabassist.com/callback",    
+        "CallBackURL"=>"https://zetaweb.elabassist.com/confirmpaymnt",    
         "AccountReference"=>"Test",    
         "TransactionDesc"=>"Test"
       ];
@@ -451,7 +451,7 @@ class HomeController extends Controller
       /* Define Content Type */
       curl_setopt($curl, CURLOPT_HTTPHEADER, array('content-type:application/json','Authorization:'.$authorisation.''));
       /* Return JSON */
-      curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+      curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
       // /* new connection instead of cached one */
       curl_setopt($curl, CURLOPT_USERPWD, $username . ":" . $password);
       // curl_setopt($curl, CURLOPT_FRESH_CONNECT, true);
@@ -462,14 +462,32 @@ class HomeController extends Controller
 
     public function callback(Request $request)
     {
-       $callbckResponse = file_get_contents('php://input');
-        $callbckResponse = json_decode($callbckResponse, TRUE);
+      // header('Content-Type: application/json');
+      // $response = '{
+      //   "ResultCode" : 0,
+      //   "ResultDesc": "Confirmation Recieved Successfully"
+      // }';
+       $yourJsonHere = file_get_contents('php://input');
+      //  echo $callbckResponse;
+      //  $logFile = "M_PESAConfirmationResponse.txt";
 
+      //  $log = fopen($logFile, "a");
+      //  $jog = fwrite($log, $callbckResponse);
+      //  fclose($log);
+      //  echo $jog;
+      // $callbckResponse = json_decode($callbckResponse, TRUE);
+      // echo $callbckResponse;
       //  $callbckResponse = file_get_contents('php://input');
-       print_r($callbckResponse);
+      //  print_r($callbckResponse);
       // echo $callbckResponse;
       // return View::make('front.callback')
       // -> with(compact('callbckResponse'));
+
+      $rooms = json_decode($yourJsonHere);
+      var_dump($rooms);
+      // foreach ($rooms as $key => $value) {
+      //   echo $key."=====".$value;
+      // }
     }
 
     public function reports(Request $request)
@@ -494,7 +512,10 @@ class HomeController extends Controller
       // $url = "http://devglobal.elabassist.com/services/globaluserservice.svc/TestReportList";
       $result = $this->callAPI($method, $url, $postdata);
       $data = json_decode($result, true);
-      $data = $data["d"];    
+      $data = $data["d"];
+      // $disp = $data[0]["RegnTestData_Mobile"];
+      
+      // print_r($disp);    
       // echo $result;
       /**POST SERVICE CALL */
       // return view('front.reports');
