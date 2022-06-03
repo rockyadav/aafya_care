@@ -89,7 +89,7 @@
 			<div class="container">
 				<a class="navbar-brand" href="index.html">
 					<!-- if logo is image enable this  -->
-						<a class="navbar-brand" href="{{url('/')}}">
+					<a class="navbar-brand" href="{{url('/')}}">
 						<img src="{{url('public/frontassets/images/logo.png')}}" alt="logo" title="logo" style="width: 200px;" />
 						<!-- height: 70px; -->
 					</a>
@@ -186,7 +186,7 @@
 						<div class="open-description" style="padding-bottom: 25px;">
 							<!-- <p>Just fill the form & relax! our trained Technician will visit your place as per your prescribed schedule and take the Sample!</p> 
 							<p></p> -->
-							<button class="btn btn-primary btnReport" url="@php echo $repo['PDFFileName']; @endphp" id="@php echo $repo['TestRegnID']; @endphp" style="margin-top: 25px;">Report</button>
+							<button class="btn btn-primary btnReport" id="@php echo $repo['TestRegnID']; @endphp" style="margin-top: 25px;">Report</button>
 						</div>
 					</div>
 				</div>

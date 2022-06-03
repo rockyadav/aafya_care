@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CallbackController;
 
 /*
 |--------------------------------------------------------------------------
@@ -100,6 +102,7 @@ Route::group([ 'prefix' => 'service-provider'],function () {
 });
 
 
+
  Route::group([ 'prefix' => 'customer'],function () {
 	//login and sign-up api
 	Route::post('updateProfile','Webservice\CustomerController@updateProfile');
@@ -129,5 +132,5 @@ Route::group([ 'prefix' => 'service-provider'],function () {
 	Route::post('getServiceProviderByBanner', 'Webservice\CustomerController@getServiceProviderByBanner');
 });
 
-
+Route::post('confirm', 'CallbackController@confirm');
 //end

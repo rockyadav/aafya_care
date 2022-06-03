@@ -62,41 +62,6 @@ class HomeController extends Controller
       $mydata = $this->callAPI($method, $url, 1);
       $result = json_decode($mydata, true);
       $tests = $result['d'];
-      // print_r($tests);
-
-        // $ch = curl_init('https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials');
-        // curl_setopt($ch, CURLOPT_HTTPHEADER, ['Authorization: Basic cUFEaXhabmlBYzZBOWJYZHFHUzZieVQxUERoOXg2aTU6Rk5mYVhlb2tKU2djVzlSVQ']);
-        // curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        // $response = curl_exec($ch);
-        // curl_close($ch);
-        // echo $response;
-                         
-        // $postData = [
-        //   "BusinessShortCode"=>"174379",    
-        //   "Password"=> "MTc0Mzc5YmZiMjc5ZjlhYTliZGJjZjE1OGU5N2RkNzFhNDY3Y2QyZTBjODkzMDU5YjEwZjc4ZTZiNzJhZGExZWQyYzkxOTIwMTYwMjE2MTY1NjI3",    
-        // "Timestamp"=>"20160216165627",    
-        // "TransactionType"=> "CustomerPayBillOnline",    
-        //   "Amount"=>"1",    
-        //  "PartyA"=>"254708374149",    
-        //   "PartyB"=>"174379",    
-        // "PhoneNumber"=>"254708374149",    
-        // "CallBackURL"=>"https://mydomain.com/pat",    
-        // "AccountReference"=>"Test",    
-        // "TransactionDesc"=>"Test"
-        // ];
-
-        // $ch = curl_init('https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest');
-        // curl_setopt($ch, CURLOPT_HTTPHEADER, [
-        //     'Authorization: Bearer SEtfuQgAkemMMFbnWIPTdm574RrV',
-        //     'Content-Type: application/json'
-        // ]);
-        // curl_setopt($ch, CURLOPT_POST, 1);
-        // curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($postData));
-        // curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        // $response     = curl_exec($ch);
-        // curl_close($ch);
-        // echo $response;
-
           return View::make('front.index')
           -> with(compact('courses'))
           -> with(compact('testimonial'))
@@ -304,7 +269,7 @@ class HomeController extends Controller
             }
 
             $user = session('myUserData');
-            $task = 0;
+            $task = 1;
             $postdata = [
               "LabID" => "a76aeb22-c144-4748-a75c-9ba45ea80d8c", // TEST_LAB_ID
               "PatientID" => $user['UserFID'],
@@ -346,16 +311,44 @@ class HomeController extends Controller
             $result = $this->callAPI($method, $url, $postdata);
             $data = json_decode($result, true);
             $data = $data["d"];
-            // echo $result;
+            // echo $result."===== ********* \n";
             if ($data["Result"] == "Appointment_Booked") 
             {
+              $totalamnt = $data['TestRegn']['TotalAmount'];
               $res_access_token = $this->getAccessToken();
-              $data = json_decode($res_access_token, true);
-              $access_token = $data['access_token'];
-              $resPayment = $this->updatePayment($access_token);
-              echo "\n"."Request Sent to Number : ".$resPayment."\n";
-              echo "<script>alert('Appointment Booked .')</script>";
-              // return redirect()->back()->with('success_message','Appointment Booked .');              
+              $token = json_decode($res_access_token, true);
+              $access_token = $token['access_token'];
+              $resPayment = $this->updatePayment($access_token,$totalamnt);
+              $resPaymentData = json_decode($resPayment);
+
+              if($resPaymentData->ResponseCode == "0" && $resPaymentData->ResponseDescription == "Success. Request accepted for processing")
+              {
+                $paymentUpdation = [
+                  "objBillRecieptClass" => [
+                    "TestRegnID" => $data["TestRegn"]["id"],
+                    "AmountPaid" => "0",
+                    "TotalAmount"=> $totalamnt,
+                    "CurrentPayAmt" => "0",
+                    "BillReceiptNo"=> $resPaymentData->CheckoutRequestID,
+                    "Task" => 3,
+                    "PaymentMethodType" => "7",
+                    "UserID" => $user['UserFID'],
+                    "LabID" => "a76aeb22-c144-4748-a75c-9ba45ea80d8c"    // TEST_LAB_ID
+                  ]
+                ];
+            
+                // print_r($paymentUpdation);
+                $postdata = json_encode($paymentUpdation);
+                // echo $postdata;
+                $method = "POST";
+                $url = "http://zetatest.elabassist.com//Services/Test_RegnService.svc/UpdateTestRegnBalAmt";
+                $mydata = $this->callAPI($method, $url, $postdata);
+                $mydata = json_decode($mydata, true);
+                // echo json_encode($mydata);
+                // echo "\n"."Request Sent to Number : \n".$resPayment."\n";
+                echo "<script>alert('Appointment Booked. Payment request is sent to your Number.')</script>";
+              return redirect()->back()->with('success_message','Appointment Booked .');
+              }
             } else 
             {
               echo "<script>document.getElementsByClassName('loadingIMG').style.display = 'none';</script>";
@@ -404,7 +397,7 @@ class HomeController extends Controller
             return $data;
     }
 
-    public function updatePayment($access_token)
+    public function updatePayment($access_token,$totalamnt)
     {
       $authorisation = "Bearer ".$access_token;
       $dates = date('Y/m/d H:i:s', time());
@@ -418,17 +411,17 @@ class HomeController extends Controller
         "Password"=> base64_encode("174379"."bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919".$mString), // "OTU2NTAwNStiZmIyNzlmOWFhOWJkYmNmMTU4ZTk3ZGQ3MWE0NjdjZDJlMGM4OTMwNTliMTBmNzhlNmI3MmFkYTFlZDJjOTE5KzIwMjIwNDE5MTM0ODI4",
         "Timestamp"=>$mString,    
         "TransactionType"=> "CustomerPayBillOnline",    
-        "Amount"=>"1",    
+        "Amount"=>"1", // $totalamnt,    
         "PartyA"=>"254746609933",    
         "PartyB"=>"174379",    
         "PhoneNumber"=>"254746609933",    
-        "CallBackURL"=>"https://zetaweb.elabassist.com/confirmpaymnt",    
+        "CallBackURL"=>"https://zetaweb.elabassist.com/api/confirm",    
         "AccountReference"=>"Test",    
         "TransactionDesc"=>"Test"
       ];
 
       $postdata = json_encode($postdata);
-      echo $postdata;
+      // echo $postdata;
       /**POST SERVICE CALL */
       $method = "POST";
       $url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest";
@@ -458,36 +451,6 @@ class HomeController extends Controller
       $result = curl_exec($curl);
       curl_close($curl);
       return $result;
-    }
-
-    public function callback(Request $request)
-    {
-      // header('Content-Type: application/json');
-      // $response = '{
-      //   "ResultCode" : 0,
-      //   "ResultDesc": "Confirmation Recieved Successfully"
-      // }';
-       $yourJsonHere = file_get_contents('php://input');
-      //  echo $callbckResponse;
-      //  $logFile = "M_PESAConfirmationResponse.txt";
-
-      //  $log = fopen($logFile, "a");
-      //  $jog = fwrite($log, $callbckResponse);
-      //  fclose($log);
-      //  echo $jog;
-      // $callbckResponse = json_decode($callbckResponse, TRUE);
-      // echo $callbckResponse;
-      //  $callbckResponse = file_get_contents('php://input');
-      //  print_r($callbckResponse);
-      // echo $callbckResponse;
-      // return View::make('front.callback')
-      // -> with(compact('callbckResponse'));
-
-      $rooms = json_decode($yourJsonHere);
-      var_dump($rooms);
-      // foreach ($rooms as $key => $value) {
-      //   echo $key."=====".$value;
-      // }
     }
 
     public function reports(Request $request)
