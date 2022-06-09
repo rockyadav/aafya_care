@@ -366,7 +366,7 @@
 					</div>
 					<div class="modal-body">
 						<div class="form-group">
-							<span class="modal-title" id="exampleModalLabel">Your Appointment has been booked successfully .</span>
+							<span class="modal-title" id="exampleModalLabel">Your Appointment has booked successfully .</span>
 						</div>
 					</div>
 					<div class="modal-footer">

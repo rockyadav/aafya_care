@@ -324,36 +324,35 @@ class HomeController extends Controller
               if($resPaymentData->ResponseCode == "0" && $resPaymentData->ResponseDescription == "Success. Request accepted for processing")
               {
                 $paymentUpdation = [
-                  "objBillRecieptClass" => [
+                    "objPayLog" => [
                     "TestRegnID" => $data["TestRegn"]["id"],
-                    "AmountPaid" => "0",
+                    "PaidAmount" => "0",
                     "TotalAmount"=> $totalamnt,
-                    "CurrentPayAmt" => "0",
                     "BillReceiptNo"=> $resPaymentData->CheckoutRequestID,
-                    "Task" => 3,
+                    "CreatedDate_String" => $_POST['selectedDateAndTime'],
                     "PaymentMethodType" => "7",
                     "UserID" => $user['UserFID'],
+                    ],
                     "LabID" => "a76aeb22-c144-4748-a75c-9ba45ea80d8c"    // TEST_LAB_ID
-                  ]
                 ];
             
                 // print_r($paymentUpdation);
                 $postdata = json_encode($paymentUpdation);
                 // echo $postdata;
                 $method = "POST";
-                $url = "http://zetatest.elabassist.com//Services/Test_RegnService.svc/UpdateTestRegnBalAmt";
+                $url = "http://zetatest.elabassist.com/Services/Test_RegnService.svc/CreatePaymentLog_Global";
                 $mydata = $this->callAPI($method, $url, $postdata);
                 $mydata = json_decode($mydata, true);
                 // echo json_encode($mydata);
                 // echo "\n"."Request Sent to Number : \n".$resPayment."\n";
                 echo "<script>alert('Appointment Booked. Payment request is sent to your Number.')</script>";
-              return redirect()->back()->with('success_message','Appointment Booked .');
+              return redirect()->back()->with('success_email','Appointment Booked .');
               }
             } else 
             {
               echo "<script>document.getElementsByClassName('loadingIMG').style.display = 'none';</script>";
               echo "<script>document.getElementsByClassName('loadingLabel').style.display = 'block';</script>";
-              echo "<script>alert('Appointment Failed .')</script>";
+              echo "<script>alert('Appointment Failed . Try again OR contact Zeta Healthcare .')</script>";
             }
             // echo $mydata;
       }
