@@ -345,7 +345,7 @@ class HomeController extends Controller
                 $mydata = json_decode($mydata, true);
                 // echo json_encode($mydata);
                 // echo "\n"."Request Sent to Number : \n".$resPayment."\n";
-                echo "<script>alert('Appointment Booked. Payment request is sent to your Number.')</script>";
+                // echo "<script>alert('Appointment Booked. Payment request is sent to your Number.')</script>";
               return redirect()->back()->with('success_email','Appointment Booked .');
               }
             } else 
