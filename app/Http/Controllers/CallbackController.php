@@ -46,16 +46,13 @@ class CallbackController extends Controller
                   "UserID" => $UserID,
                   "LabID" => "a76aeb22-c144-4748-a75c-9ba45ea80d8c"    // TEST_LAB_ID
                 ]
-              ];
+              ];  
           
               $postdata = json_encode($paymentUpdation);
               $method = "POST";
               $url = "http://zetatest.elabassist.com/Services/Test_RegnService.svc/UpdateTestRegnBalAmt";
               $mydata = $this->callAPI($method, $url, $postdata);
-            //   $mydata = json_decode($mydata, true);
-            //   echo $mydata;
-        
-            // return $request->all();
+              echo $mydata;
         }
     }
 

@@ -65,6 +65,144 @@
 		bottom: 1px;
 		background-color: white;
 	}
+
+	#breakingline {
+		display: none;
+	}
+
+	@media (max-width:320px) {
+
+		/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+		.mobileviewing1 {
+			width: 100px;
+			margin-top: 5px;
+		}
+
+		.mobileviewing2 {
+			position: relative;
+			width: fit-content;
+			bottom: 18px;
+			margin-top: 21px;
+		}
+
+		#mpesalogo {
+			margin-left: 46px;
+		}
+
+		.spacing {
+			width: fit-content;
+		}
+	}
+
+	@media (max-width:480px) {
+
+		/* smartphones, Android phones, landscape iPhone */
+		.mobileviewing1 {
+			width: 100px;
+			margin-top: 5px;
+		}
+
+		.mobileviewing2 {
+			position: relative;
+			width: fit-content;
+			bottom: 18px;
+			margin-top: 21px;
+		}
+
+		#mpesalogo {
+			margin-left: 46px;
+		}
+
+		.spacing {
+			width: fit-content;
+		}
+	}
+
+	@media (max-width:600px) {
+
+		/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+		.mobileviewing1 {
+			width: 100px;
+			margin-top: 5px;
+		}
+
+		.mobileviewing2 {
+			position: relative;
+			width: fit-content;
+			bottom: 18px;
+			margin-top: 21px;
+		}
+
+		#mpesalogo {
+			margin-left: 46px;
+		}
+
+		.spacing {
+			width: fit-content;
+		}
+	}
+
+	@media (max-width:801px) {
+
+		/* tablet, landscape iPad, lo-res laptops ands desktops */
+		.mobileviewing1 {
+			width: 100px;
+			margin-top: 5px;
+		}
+
+		.mobileviewing2 {
+			position: relative;
+			width: 300px;
+			bottom: 18px;
+		}
+
+		#mpesalogo {
+			margin-left: 46px;
+		}
+	}
+
+	@media (max-width:1012px) {
+
+		#mpesalogo {
+			margin-left: 46px;
+		}
+
+		.mobileviewing1 {
+			width: 100px;
+			margin-top: 5px;
+		}
+
+		.mobileviewing2 {
+			position: relative;
+			width: 300px;
+			bottom: 18px;
+		}
+
+		.spacing {
+			position: relative;
+			top: 10px;
+		}
+
+		.flright {
+			position: relative;
+			left: 40px;
+		}
+
+		#breakingline {
+			display: block;
+		}
+
+		.center {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.align-left {
+			position: relative;
+			right: 30px;
+		}
+	}
 </style>
 
 <body>
@@ -73,20 +211,20 @@
 		<div class="hny-top-menu">
 			<div class="container">
 				<div class="row">
-					<div class="social-top col-lg-5 mt-lg-0 mt-sm-6">
-						<div class="top-bar-text text-left"><a class="bk-button" href="#">BOOK ONLINE </a> You can
+					<div class="social-top col-lg-5 mt-lg-0 mt-sm-6 center">
+						<div class="top-bar-text text-left"><a class="bk-button center" href="#">BOOK ONLINE </a> <span id="breakingline"> <br></span> You can
 							request appointment now !</div>
 					</div>
 
 					@if (session()->has('myUserData'))
-					<div class="social-top col-lg-3 mt-lg-0 mt-sm-6">
+					<div class="social-top col-lg-3 mt-lg-0 mt-sm-6 mobileviewing1 spacing">
 						<div class="top-bar-text text-center"><a class="bk-button" href="{{url('reports')}}">REPORTS</a></div>
 					</div>
 
-					<div class="social-top col-lg-4 mt-lg-0 mt-sm-6">
+					<div class="social-top col-lg-4 mt-lg-0 mt-sm-6 mobileviewing2 ">
 						@php $user = session('myUserData'); @endphp
-						<div class="top-bar-text text-right"> You are IN <b><i> @php echo $user['UserName']; @endphp ! </i></b>
-							<a class="bk-button" href="#" onclick="Logout()">
+						<div class="top-bar-text text-right spacing"> You are IN <b><i> @php echo $user['UserName']; @endphp ! </i></b>
+							<a class="bk-button flright" href="#" onclick="Logout()">
 								Logout
 							</a>
 						</div>
@@ -171,7 +309,7 @@
 		<div class="banner-content banner-view">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-7">
+					<div class="col-lg-7" id="mobileviewnone">
 						<div class="banner-info-bg mt-5">
 							<!-- <h6> @if($slider!='') {{$slider->title}} @endif</h6>
 							<h5> @if($slider!='') {{$slider->description}} @endif</h5> -->
@@ -193,7 +331,7 @@
 											</div>
 										</div>
 										<button type="submit" class="btn btn-primary submit">
-											<label for="" class="loadingLabel">Send OTP</label>
+											<a class="loadingLabel">Send OTP</a>
 											<img src="{{url('public/frontassets/images/img.svg')}}" alt="spinner" class="loadingIMG">
 										</button>
 										<p>Don't have an account ? <a href="#" id="idSignUp" data-toggle="modal" data-target="#SignUpModal">Sign up</a></p>
@@ -210,7 +348,7 @@
 										<!-- {{ csrf_field() }} -->
 										<div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
 											<label for="Mobile Number">Enter OTP</label>
-											<input class="input100" id="mobileOtp" type="password" name="otp" placeholder="Otp" style="">
+											<input class="input100" id="mobileOtp" type="password" name="otp" placeholder="Otp">
 											<span style="float: right; margin-left: -25px; margin-top: -25px;" toggle="#mobileOtp" class="fa fa-fw fa-eye field-icon toggle-password"></span>
 											<!-- <span class="focus-input100" data-placeholder="Email"></span> -->
 										</div>
@@ -220,7 +358,7 @@
 												<!-- <div class="login100-form-bgbtn"></div> -->
 												<!-- <button href="javascript:void(0);" class="login100-form-btn" id="btnEnterOTP"> -->
 												<button type="submit" id="btnEnterOTP" class="btn btn-primary submit">
-													<label for="" class="loadingLabel">Enter OTP</label>
+													<a class="loadingLabel">Enter OTP</a>
 													<img src="{{url('public/frontassets/images/img.svg')}}" alt="spinner" class="loadingIMG">
 												</button>
 											</div>
@@ -283,7 +421,7 @@
 					@endforeach
 				</select> -->
 										</div>
-										<select class="form-control test_option" name="test" required="">
+										<select class="form-control test_option" name="tests" required="">
 											<option value="">Select Test</option>
 											<!-- @foreach($tests as $test)
 					<option value="@php echo $test['TestID']; @endphp">@php echo $test['TestName']; @endphp</option>
@@ -311,6 +449,9 @@
 										<div class="form-group">
 											<input type="text" name="bookTime" id="bookTime" onchange="setTime(this)" class="form-control time_sel" placeholder="Time*" required="" autocomplete="off">
 										</div>
+										<div class="form-group">
+												<input type="text" class="form-control" placeholder="Address *" name="address" required="required">
+											</div>
 										<input type="hidden" name="selectedDateAndTime" id="selectedDateAndTime" class="form-control">
 										<label class="NOP" style="font-size: 12px;color: red;"></label>
 										<button type="submit" class="btn btn-primary submit btn_appointmnt">
@@ -366,7 +507,7 @@
 					</div>
 					<div class="modal-body">
 						<div class="form-group">
-							<span class="modal-title" id="exampleModalLabel">Your Appointment has booked successfully .</span>
+							<span class="modal-title" id="exampleModalLabel">Your Appointment has been booked successfully .</span>
 						</div>
 					</div>
 					<div class="modal-footer">
@@ -617,11 +758,18 @@
 		<div class="cpy-right py-3" style="position: relative;">
 			<div class="row">
 				<div class="col-sm-4 col-lg-4 col-md-4">
-					<p class="text-center" style="position: absolute; bottom: 17px;">
-						<a href="#">
-							<img style="height: 100px;width: 170px;" src="{{url('public/frontassets/images/mpesa-removebg-preview.png')}}" alt="">
-						</a>
-						<label for="Till No : ">Till No : <strong>9565005</strong></label>
+					<p class="text-center" style="position: absolute; bottom: 17px;background:#090013;width:92%;">
+					<div class="row">
+						<div class="col-sm-12 col-md-12 col-lg-12">
+							<a href="#">
+								<img style="height: 90px;width: 150px;" src="{{url('public/frontassets/images/mpesa-removebg-preview.png')}}" alt="mpesa" id="mpesalogo">
+							</a>
+
+							<label for="Till No : " class="align-left" style="color:white;">Till No : <strong>9565005</strong></label>
+
+						</div>
+					</div>
+
 
 					</p>
 				</div>
@@ -645,10 +793,10 @@
 						<a href="javascript:void(0)">A Part of Zeta Healthcare Limited</a>
 					</p>
 				</div>
-				<div class="col-sm-4 col-lg-4 col-md-4">
+				<div class="col-sm-4 col-lg-4 col-md-4 ">
 					<p>
 						<a href="{{url('public/frontassets/apk/Zeta-06-02-22.apk.apk')}}" download="Zeta-06-02-22.apk.apk">
-							<img style="float:right;margin-right:75px;margin-top:5px;" src="{{url('public/frontassets/images/playstore.png')}}" alt="playstore logo">
+							<img style="float:right;margin-right:100px;margin-top:5px;" src="{{url('public/frontassets/images/playstore.png')}}" alt="playstore logo">
 						</a>
 					</p>
 					<p class="text-center">
@@ -744,8 +892,9 @@
 
 	$('select.test_option').on('change', function() {
 		// alert( this.value );
+		var conceptName = $('.test_option').find(":selected").attr('name');
 		$("#selectedTest").val(this.value);
-		$("#selectedTestType").val(this.name);
+		$("#selectedTestType").val(conceptName);
 
 	});
 </script>
@@ -1044,6 +1193,7 @@
 			method: "GET",
 			dataType: "json",
 			beforeSend: function() {
+				// $('#loginotp button').prop('disabled', true)
 				$('.loadingIMG').show();
 				$('.loadingLabel').hide();
 			},

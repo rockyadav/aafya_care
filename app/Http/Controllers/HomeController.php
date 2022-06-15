@@ -184,77 +184,11 @@ class HomeController extends Controller
               'city'     => 'required|string',
               'test'     => 'required',
               'bookDate' => 'required|string',
-              'bookTime' => 'required|string'
+              'bookTime' => 'required|string',
+              'address' => 'required|string'
           ]);
 
-          // print_r($_POST);
-          // $AppointmentDate = $this->input->post('selectedDateAndTime');
-            // // require app_path().'\third_party\PHPMailer_5.2.1\class.phpmailer.php';
-            // require_once("app/third_party/PHPMailer_5.2.1/class.phpmailer.php");
-
-            //   $mail = new \PHPMailer(true);                              // Passing `true` enables exceptions
-            //   try {
-            //         //Server settings
-            //         // $mail->SMTPDebug = 2;                                 // Enable verbose debug output
-            //         $mail->isSMTP();                                      // Set mailer to use SMTP
-            //         $mail->Host = 'mail.bluepearlhealthtech.com';  // Specify main and backup SMTP servers
-            //         $mail->SMTPAuth = true;                               // Enable SMTP authentication
-            //         $mail->Username = 'test@bluepearlhealthtech.com';                 // SMTP username
-            //         $mail->Password = 'test@123';                           // SMTP password
-          
-            //         $mail->SMTPSecure = 'https';                            // Enable TLS encryption, `ssl` also accepted
-            //         $mail->Port = 25;                                    // TCP port to connect to
-          
-            //         //Recipients
-            //         $mail->setFrom('test@bluepearlhealthtech.com', trim($request['name']));
-            //         $mail->addAddress('care@aafya.care');     // Add a recipient
-          
-            //             //Content
-            //         $mail->isHTML(true);                                  // Set email format to HTML
-            //         $mail->Subject = 'Zeta Appointment';
-            //         $mail->Body    = '<h4 align=center>Name : '.$_POST['name'].'<br>Mobile : '.trim($request['mobile']).'<br>City : '.trim($request['city']).'<br>Test : '.trim($request['test']).'</h4>';
-            //         $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-            //         $mail->send();
-            //        // echo 'Message has been sent';
-            //        return redirect()->back()->with('success_email','Success');
-            //     }
-            //     catch (Exception $e) {
-            //       echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
-            //     }
-
-            //   if ($validator->fails()) 
-            //   {
-            //       return redirect()->back() ->withErrors($validator)->withInput(); 
-            //   }
-              
-            //     $res = Customer::orderBy('id','desc')->take(1)->get();
-            //     if(count($res)>0)
-            //     {
-            //       $regno = $res[0]->id+1;
-            //     }else{
-            //       $regno = 100;
-            //     }
-            //     $catdata = new Customer; 
-            //     $otp = mt_rand(1000,9999);
-            //     $catdata->registration_no  = "AAFYA-".$regno;
-            //     $catdata->name       = trim($request['name']);
-            //     $catdata->mobile     = trim($request['mobile']);
-            //     $catdata->city       = trim($request['city']);
-            //     $catdata->test_id    = trim($request['test']);
-            //     $catdata->cdate      = date("Y-m-d");
-            //     $catdata->otp        = $otp;
-
-            //     $result =  $catdata->save();  
-
-            //   if($result)
-            //   {
-
-            //      session()->put('UserData',array('id' => $catdata->id,'mobile'=>$catdata->mobile,'registration_no'=>$catdata->registration_no,'test_id'=>$catdata->test_id,'otp'=>$catdata->otp));
-
-            //      return redirect()->back()->with('success_message','Success');
-            //   }else{
-            //       return back()->with('error_message','Please try again.');
-            //   }
+          try {
             $bktest = "";
             $bkprofile = "";
 
@@ -279,7 +213,7 @@ class HomeController extends Controller
               "SelectedPopularTest" => "",
               "EnteredTest" => "",
               "AppointmentDate" => $_POST['selectedDateAndTime'],
-              "AppointmentAddress" => "",
+              "AppointmentAddress" => $_POST['address'],
               "RefDocID" => "2",
               "RefDocName" => "Self .",
               "PatientName" => $_POST['name'],
@@ -320,6 +254,7 @@ class HomeController extends Controller
               $access_token = $token['access_token'];
               $resPayment = $this->updatePayment($access_token,$totalamnt);
               $resPaymentData = json_decode($resPayment);
+              // echo $resPayment;
 
               if($resPaymentData->ResponseCode == "0" && $resPaymentData->ResponseDescription == "Success. Request accepted for processing")
               {
@@ -354,7 +289,9 @@ class HomeController extends Controller
               echo "<script>document.getElementsByClassName('loadingLabel').style.display = 'block';</script>";
               echo "<script>alert('Appointment Failed . Try again OR contact Zeta Healthcare .')</script>";
             }
-            // echo $mydata;
+          } catch (\Throwable $th) {
+            //throw $th;
+          }
       }
 
     public function getAccessToken()
@@ -410,7 +347,7 @@ class HomeController extends Controller
         "Password"=> base64_encode("174379"."bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919".$mString), // "OTU2NTAwNStiZmIyNzlmOWFhOWJkYmNmMTU4ZTk3ZGQ3MWE0NjdjZDJlMGM4OTMwNTliMTBmNzhlNmI3MmFkYTFlZDJjOTE5KzIwMjIwNDE5MTM0ODI4",
         "Timestamp"=>$mString,    
         "TransactionType"=> "CustomerPayBillOnline",    
-        "Amount"=>"1", // $totalamnt,    
+        "Amount"=>$totalamnt,
         "PartyA"=>"254746609933",    
         "PartyB"=>"174379",    
         "PhoneNumber"=>"254746609933",    
@@ -497,7 +434,7 @@ class HomeController extends Controller
           "MobileDeviceID" => "",
           "Name" => $_POST["name"],
           "Gender" => $_POST["namegender"],
-          "AppID" => "",
+          "AppID" => "a76aeb22-c144-4748-a75c-9ba45ea80d8c",
           "DOB" => $_POST["birthdate"]
         ]
       ];
